@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hungerino</title>
+    <link rel="icon" type="image/x-icon" href="img/icons8-starving-64.png" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <script src="help_functions.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body onload="render()">
+    <header id="head">
+        <div class="logo">
+            <img src="img/icons8-starving-64.png" alt="Hungerino Logo" />
+            <h2 class="siteName">Hungerino</h2>
+        </div>
+        <span>Speisekarte</span>
+        <div class="headerMenus">
+            <img src="img/icons8-germany-96.png" alt="Land" />
+            <img src="img/icons8-menu-128.png" alt="Menü" />
+        </div>
+    </header>
+    <section id="storeInfo" class="storeInfo">
+        <img class="imageStore" src="img/store_front.jpg" alt="Ladentheke mit Donuts" />
+        <div class="storeInfoText">
+            <img class="logoStore" src="img/classic.png" alt="Logo Donu Express" />
+            <h1>Donut Express</h1>
+            <div class="rating">
+                <div>
+                    <span class="material-symbols-outlined starRating"> star </span>
+                    <span class="material-symbols-outlined starRating"> star </span>
+                    <span class="material-symbols-outlined starRating"> star </span>
+                    <span class="material-symbols-outlined starRating"> star </span>
+                    <span class="material-symbols-outlined starRating">
+              star_half
+            </span>
+                </div>
+
+                <span class="ratingText">423 Bewertungen</span>
+            </div>
+            <div class="storeFees">
+                <span class="material-symbols-outlined feesIcons">
+            shopping_bag
+          </span>
+                <span>Min. 15.00 € • </span>
+                <span class="material-symbols-outlined feesIcons"> pedal_bike </span>
+                <span> 1.50 €</span>
+            </div>
+            <span class="storePromo">
+          Bei diesem Restaurant kannst du Stempel sammeln. Stelle beim
+          Bestellabschluss bitte sicher, dass du dich für unseren Newsletter
+          angemeldet hast, um deine Stempel per E-Mail zu erhalten.
+        </span>
+        </div>
+    </section>
+    <section id="contentContainer" class="contentContainer">
+        <div id="content"></div>
+    </section>
+    <section id="basket" class="basket">
+        <div class="headerBasker">
+            <h2 class="headBasket">Warenkorb</h2>
+            <button class="closeBasket">
+          <span onclick="closeMobileBasket()" class="material-symbols-outlined"
+            >close</span
+          >
+        </button>
+        </div>
+        <div id="basketContent">Test</div>
+    </section>
+
+    <footer></footer>
+</body>
+
+</html>

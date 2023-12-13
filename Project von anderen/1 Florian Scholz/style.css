@@ -1,0 +1,630 @@
+html {
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.visible {
+    visibility: visible !important;
+}
+
+/* header */
+
+header {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    background-color: white;
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+header h2 {
+    color: #ef6806;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 75px;
+    height: 75px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.logo h2 {
+    font-size: 30px;
+}
+
+header span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.headerMenus {
+    display: flex;
+    align-items: center;
+}
+
+.headerMenus img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 16px;
+    padding: 8px;
+}
+
+.headerMenus img:hover {
+    cursor: pointer;
+    background-color: rgba(140, 140, 140, 0.511);
+}
+
+/* store discription */
+
+.storeInfo {
+    margin-right: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.storeInfoText {
+    margin-top: -50px;
+    width: 900px;
+    margin-bottom: 16px;
+}
+
+.storeInfoText h1 {
+    margin-block: unset;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    font-size: 30px;
+}
+
+.imageStore {
+    margin-top: 90px;
+    width: 100%;
+    max-height: 30vh;
+    object-position: center;
+    object-fit: cover;
+}
+
+.logoStore {
+    background-color: white;
+    padding: 8px;
+    border-radius: 16px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    height: 80px;
+    width: 80px;
+}
+
+.rating {
+    display: flex;
+}
+
+.starRating {
+    color: #ef6806;
+    font-size: 20px !important;
+    font-variation-settings: "FILL" 1, "wght" 300;
+    margin: -3px;
+}
+
+.ratingText {
+    margin-left: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    text-decoration: underline;
+}
+
+.ratingText:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.storeFees {
+    margin-top: 8px;
+    margin-bottom: 16px;
+    margin-left: -4px;
+    font-size: 16px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+}
+
+.feesIcons {
+    font-size: 18px !important;
+    font-variation-settings: "wght" 300;
+    margin-right: 4px;
+    margin-left: 4px;
+}
+
+.storePromo {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+/* shoppingbasket */
+
+.basket {
+    overflow: auto;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    box-shadow: -5px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.headBasket {
+    margin-top: 100px;
+}
+
+.headerBasker {
+    display: flex;
+}
+
+.closeBasket {
+    display: none;
+    border: unset;
+    background-color: unset;
+    margin-right: 16px;
+}
+
+.closeBasket:hover {
+    cursor: pointer;
+}
+
+#emptyBasket {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#emptyBasket span {
+    text-align: center;
+}
+
+#basketContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.emptyBasketButton {
+    display: none;
+    border: unset;
+    margin-top: 32px;
+    border: 1px solid lightgray;
+    background-color: white;
+    font-size: 24px;
+    height: 40px;
+    width: 250px;
+    border-radius: 20px;
+}
+
+.emptyBasketButton:hover {
+    cursor: pointer;
+}
+
+.dishInBasket {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    font-size: 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 1px rgba(53, 53, 53, 0.2);
+}
+
+.dishInBasketHead {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dishAmount {
+    font-weight: 500;
+}
+
+.dishName {
+    font-weight: 500;
+    text-decoration: underline;
+    margin-left: 8px;
+}
+
+.dishName:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.editAmount {
+    margin-top: 32px;
+    align-self: flex-end;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.editAmount span {
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.editAmount button {
+    border: unset;
+    border-radius: 50%;
+    font-size: 26px;
+    font-weight: 500;
+    background-color: rgb(188, 188, 188);
+    height: 48px;
+    width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editAmount button:hover {
+    cursor: pointer;
+    background-color: rgb(134, 134, 134);
+}
+
+.minOrder {
+    display: flex;
+    justify-content: space-between;
+    width: 280px;
+    padding: 16px;
+    font-size: 12px;
+    background-color: rgb(253, 249, 223);
+    border-radius: 10px;
+}
+
+.minOrderDiscription {
+    width: 312px;
+    margin-top: 8px;
+    font-size: 12px;
+    margin-bottom: 16px;
+}
+
+.billSummary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sumBasket {
+    font-size: 18px;
+    width: 312px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.totalSumBasket {
+    font-size: 18px;
+    font-weight: bold;
+    width: 312px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.disabledButton {
+    margin-top: 16px;
+    border: unset;
+    border-radius: 24px;
+    color: #8c999b;
+    font-size: 20px;
+    width: 300px;
+    height: 48px;
+    background-color: #efedea;
+}
+
+.buySmthButton {
+    display: none;
+    margin-top: 16px;
+    border: unset;
+    border: 1px solid lightslategray;
+    border-radius: 24px;
+    color: black;
+    font-size: 20px;
+    width: 300px;
+    height: 48px;
+    background-color: white;
+}
+
+.buySmthButton:hover {
+    cursor: pointer;
+}
+
+.buyButton {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border: unset;
+    border-radius: 24px;
+    color: white;
+    font-size: 20px;
+    width: 300px;
+    height: 48px;
+    background-color: #ef6806;
+}
+
+.buyButton:hover {
+    cursor: pointer;
+    background-color: #bb4f02;
+}
+
+/* Basket when mobile Order */
+
+.mobileOrder {
+    height: 72px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hideMobileOrder {
+    visibility: hidden;
+}
+
+.mobileOrderButton {
+    width: 90%;
+    height: 48px;
+    border-radius: 24px;
+    border: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ef6806;
+    color: white;
+    font-size: 24px;
+}
+
+.mobileOrderButton:hover {
+    cursor: pointer;
+}
+
+.amountInBasket {
+    display: flex;
+    margin-right: 4px;
+}
+
+.sumAmount {
+    background-color: #262626;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 18px;
+    margin-right: -8px;
+    margin-top: -8px;
+    z-index: 2;
+}
+
+/* main content */
+
+.contentContainer {
+    margin-right: 350px;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+#content {
+    width: 900px;
+}
+
+.singleDish {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dishDiscription {
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dishDiscription h3 {
+    margin-block: unset;
+    font-size: 20px;
+}
+
+.dishDiscription span {
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.dishInteract {
+    display: flex;
+    margin-right: 16px;
+}
+
+.productImage {
+    width: 100px;
+    height: 100px;
+    margin-right: 64px;
+}
+
+.addDishButton {
+    border: unset;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(188, 188, 188);
+}
+
+.addDishButton:hover {
+    cursor: pointer;
+    background-color: rgb(134, 134, 134);
+}
+
+.countClass {
+    font-size: 20px;
+}
+
+@media (max-width: 1300px) {
+    .storeInfoText {
+        width: 700px;
+    }
+    #content {
+        width: 700px;
+    }
+}
+
+@media (min-width: 1100px) {
+    .d-none {
+        display: unset;
+    }
+}
+
+/* Switch to mobile view Basket is hidden */
+
+@media (max-width: 1100px) {
+    .hideMobileOrder {
+        visibility: visible;
+    }
+    .storeInfo {
+        margin-right: 0px;
+    }
+    .contentContainer {
+        margin-right: 0px;
+        margin-bottom: -400px;
+    }
+    .storeInfoText {
+        width: 90vw;
+    }
+    #content {
+        width: 90vw;
+    }
+    .emptyBasketButton {
+        display: unset;
+    }
+    .closeBasket {
+        display: unset;
+    }
+    .basket {
+        visibility: hidden;
+        width: 100%;
+        height: unset;
+        align-items: unset;
+        position: unset;
+        margin-bottom: 150px;
+        box-shadow: unset;
+    }
+    .headerBasker {
+        justify-content: space-between;
+    }
+    .headBasket {
+        margin-top: 16px;
+        margin-left: 16px;
+    }
+    .dishInBasket {
+        width: 90vw;
+        box-shadow: unset;
+    }
+    .dishInBasketHead {
+        width: 90vw;
+    }
+    .minOrder {
+        width: 90vw;
+    }
+    .minOrderDiscription {
+        width: 90vw;
+    }
+    .sumBasket {
+        width: 90vw;
+    }
+    .totalSumBasket {
+        width: 90vw;
+    }
+    .billSummary {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        background-color: white;
+        z-index: 10;
+        padding-bottom: 16px;
+    }
+    .buyButton {
+        width: 90vw;
+        margin-bottom: 0;
+    }
+    .disabledButton {
+        display: none;
+    }
+    .buySmthButton {
+        display: unset;
+    }
+}
+
+@media (max-width: 600px) {
+    .siteName {
+        display: none;
+    }
+    .headerMenus img {
+        width: 32px;
+        height: 32px;
+        margin-right: 8px;
+        padding: 4px;
+    }
+    .productImage {
+        width: 48px;
+        height: 48px;
+        margin-right: 16px;
+    }
+    .dishDiscription {
+        margin-left: 8px;
+    }
+    .dishInteract {
+        margin-right: 8px;
+    }
+    .singleDish {
+        height: unset;
+    }
+    .dishDiscription {
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+    .dishDiscription h3 {
+        font-size: 18px;
+    }
+    .dishDiscription span {
+        font-size: 14px;
+    }
+}
