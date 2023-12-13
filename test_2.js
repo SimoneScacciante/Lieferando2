@@ -73,7 +73,6 @@ function addToBasket(index) {
 
 }
 
-//         document.getElementById('testID').innerHTML = ` Array enthält etwas`
 
 
 

@@ -2,7 +2,7 @@ let menus = ['Salat', 'Suppe', 'Hamburger'];
 let prices = [20, 7.5, 9];
 let amounts = [1, 1, 1];
 
-function getValueFromInput(id) {
+function getValueFromInput(id) { // Diese Funktion wird nur als Verknüpfung für Funktion aus Zeile 8 und 11 gebraucht
     return document.getElementById(id).value;
 }
 function getMenuFromInput(id) {

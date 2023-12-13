@@ -30,7 +30,7 @@ function init() {
         TextHier2.innerHTML += `
         <div>
         ${menus[j]['name']} - ${menus[j]['price']} € - Anzahl: ${amounts[j]} 
-        
+        <button> Kaufen </button>
         </div> 
         `
     }
