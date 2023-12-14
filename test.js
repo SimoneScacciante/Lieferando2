@@ -1,11 +1,10 @@
 
-let amounts = [1, 1, 1];
 
 let menus = [
     {
-        'name': 'Pizza Salami',
+        'name': 'Hamburger',
         'recepte': ['Tomatensoße', 'Salami', 'Käse', 'Peperoni'],
-        'price': 20,
+        'price': 10,
     },
 
     {
@@ -15,11 +14,16 @@ let menus = [
     },
 
     {
-        'name': 'Hamburger',
+        'name': 'Pizza Salami',
         'recepte': ['Kartoffel', 'Curry', 'Ketchup'],
-        'price': 9,
+        'price': 15,
     },
 ]
+
+let amounts = [1, 1, 1];
+let orderMenu = []
+let orderPrice = []
+
 
 function init() {
 
@@ -30,7 +34,7 @@ function init() {
         TextHier2.innerHTML += `
         <div>
         ${menus[j]['name']} - ${menus[j]['price']} € - Anzahl: ${amounts[j]} 
-        
+        <button> Kaufen </button>
         </div> 
         `
     }
@@ -49,8 +53,6 @@ function getPriceFromInput() {
     let price = getValueFromInput('price');
     var x = Number(price);
     return x;
-
-    // du könntest auch "return Number(getValueFromInput('price'));" statt Zeile 14-16
 }
 
 function onAddMenu() {
@@ -62,23 +64,20 @@ function onAddMenu() {
         menus.push({ 'name': newMenu, 'price': newPrice });
         amounts.push(1);
     } else {
-        amounts[i] = amounts[i] + 1;
-        menus[i]['price'] = menus[i]['price'] + newPrice;
+        amounts[i] = amounts[i] + newPrice;
     }
 
-    updateMenuDisplay(); 
+    updateMenuDisplay();
 }
 
 
 function getMenuIndex(menuIndex) {
-    // Durchlaufe das Array und finde den Index des Menüs mit dem passenden Namen
-    for (let i = 0; i < menus.length; i++) { //  Hier wird überprüft, ob der Name des aktuellen Menüs (menus[i]['name']) 
-        if (menus[i]['name'] === menuIndex) { //gleich dem gesuchten Menünamen (menuIndex) ist.
-            return i; // Gib den Index zurück, wenn das Menü gefunden wurde
+    for (let i = 0; i < menus.length; i++) {
+        if (menus[i]['name'] === menuIndex) {
+            return i;
         }
     }
-
-    return -1; // Gib -1 zurück, wenn das Menü nicht gefunden wurde
+    return -1;
 }
 
 
@@ -88,8 +87,9 @@ function updateMenuDisplay() {
 
     for (let i = 0; i < menus.length; i++) {
         menuDisplay.innerHTML += `
+    
             <div>
-                ${menus[i]['name']} - ${menus[i]['price']} € - Anzahl: ${amounts[i]}
+                ${menus[i]['name']} - ${menus[i]['price'] * amounts[i]} € - Anzahl: ${amounts[i]}
             </div>`;
     }
 }

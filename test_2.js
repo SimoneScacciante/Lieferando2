@@ -1,78 +1,60 @@
-let shoppingCartNames = [];
-let shoppingCartPrices = [];
-
-let arrayMenu = [
-    {
-        'name': 'Pizza Salami',
-        'recepte': ['Tomatensoße', 'Salami', 'Käse', 'Peperoni'],
-        'price': 30,
-    },
-
-    {
-        'name': 'Pasta Carbonara',
-        'recepte': ['Tomatensoße', 'Apfel'],
-        'price': 10,
-    },
-
-    {
-        'name': 'Curry Wurst',
-        'recepte': ['Kartoffel', 'Curry', 'Ketchup'],
-        'price': 5,
-    },
-
+let menus = [{
+    'name': 'Pizza Salami',
+    'price': '12.99',
+    'zutaten': ['Tomatensoße', 'Salami', 'Käse'],
+},
+{
+    'name': 'Pizza Margherita',
+    'price': '9.99',
+    'zutaten': ['Tomatensoße', 'Käse'],
+},
+{
+    'name': 'Pizza Funghi',
+    'price': '12.99',
+    'zutaten': ['Tomatensoße', 'frische Champignons', 'Käse'],
+},
+{
+    'name': 'Pizza Tuna',
+    'price': '13.99',
+    'zutaten': ['Tomatensoße', 'Thunfisch', 'Zwiebeln', 'Käse'],
+},
+{
+    'name': 'Pasta Bolo',
+    'price': '10.49',
+    'zutaten': ['Bolognesesoße'],
+},
 ]
+let orderMenu = []
+let orderPrice = []
+let orderAmount = []
 
-function init() {
-    const basket = document.getElementById("foodID");
-    basket.innerHTML = '';
 
-    for (let i = 0; i < arrayMenu.length; i++) {
-        generateMenuHTML(i);
+function render() {
+    let menu = document.getElementById('menu');
+    menu.innerHTML = '';
+    for (let i = 0; i < menus.length; i++) {
+        menuLoad(i);
     }
 }
 
-function generateMenuHTML(i) {
 
-    const basket = document.getElementById("foodID");
-    const element = arrayMenu[i];
-
-    basket.innerHTML += `
-    <div class="menu-container">
-        <div class="menu-box">
-            <div>
-                <div>
-                    <h1>${element['name']}</h1>
-                </div>
-                <div>${element['recepte']}</div>
-            </div>
-
-            <div class="menu-rightside">
-                <div><h3>${element['price']} €</h3></div>
-                <div><button onclick="addToBasket(${i})">Kaufen</button></div>
-            </div>
+function menuLoad(i) {
+    let menu = document.getElementById('menu');
+    const element = menus[i]
+    menu.innerHTML += `
+<div class="menuCard">
+    <span>
+    <h2>${element['name']}</h2>
+    ${element['zutaten']}
+    </span>
+    <div class = "addArea">
+    ${element['price']}
+        <div class = "addArea">
+            <input id="amount${i}" type="number" min="1" max ="10" value="1">
+            <img class ="imgBasketAdd" src="img/basket.png" onclick="addToBasket(${i})">
         </div>
+
     </div>
-    `;
+</div>
+`;
 }
-
-
-function addToBasket(index) {
-
-
-    shoppingCartNames.push(arrayMenu[index]['name'])
-    shoppingCartPrices.push(arrayMenu[index]['price'])
-
-    let basket_2 = document.getElementById('addToBasketID');
-    basket_2.innerHTML = "";
-
-    for (let j = 0; j < shoppingCartNames.length; j++) {
-        basket_2.innerHTML += `
-        ${shoppingCartNames[j]} <br>
-        `;
-    }
-
-}
-
-
-
-
