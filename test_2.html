@@ -1,71 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="test_2.js"> </script>
-
-
-
-    <style>
-        .buttonBurger {
-            height: 100px;
-        }
-
-        .menu-box {
-            border-radius: 25px;
-            border: 2px solid #73AD21;
-            padding: 20px;
-            width: 600px;
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .menu-buy {
-            padding-left: 30;
-        }
-
-        .menu-rightside {
-            display: flex;
-            align-items: center;
-            column-gap: 25px;
-        }
-
-        .basketStyle {
-            display: flex;
-            column-gap: 30px;
-        }
-    </style>
+    <title>Lieferando</title>
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="test.css">
+    <link rel="shortcut icon" href="img/pizzaLogo.png" type="image/x-icon">
+    <script src="test_2.js"></script>
 </head>
 
-<body onload="init()">
+<body onload="render()">
+    <header>
+        <img class="imgLogo" src="img/pizzaLogo.png" alt="">
+        <h1>Pizzarando</h1>
+    </header>
 
-
-    <br><br><br><br>
-    <div class="title">
+    <div class="content">
+        <div class="menu" id="menuID"></div>
+        <div class="basket" id="basket"></div>
     </div>
-    <div id="foodID">
-    </div>
 
-
-
-    <br><br><br><br>
-
-    <h1>Warenkorb:</h1>
-    <div class="basketStyle">
-
-        <div id="addToBasketID"></div> 
-        <div id="priceID"></div>
-
-
-        <div id="testID"> </div>
-
-    </div> 
-
+    <footer></footer>
 </body>
 
 </html>

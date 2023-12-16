@@ -61,7 +61,6 @@ function onAddMenu() {
         amounts.push(1);
     } else {
         amounts[i] = amounts[i] + newPrice;
-        menus[i]['price'] = newPrice +  menus[i]['price'];
     }
 
     updateMenuDisplay();
@@ -86,7 +85,7 @@ function updateMenuDisplay() {
         menuDisplay.innerHTML += `
     
             <div>
-                ${menus[i]['name']} - ${menus[i]['price']} € - Anzahl: ${amounts[i]}
+                ${menus[i]['name']} - ${menus[i]['price'] * amounts[i]}  € - Anzahl: ${amounts[i]}
             </div>`;
     }
 }

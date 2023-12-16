@@ -1,35 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lieferando</title>
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="test.css">
+    <link rel="shortcut icon" href="img/pizzaLogo.png" type="image/x-icon">
     <script src="test.js"></script>
-    <style>
-    </style>
 </head>
 
-<body onload="init()">
-    <h1>Lieferando</h1>
+<body onload="render()">
+    <header>
+        <img class="imgLogo" src="img/pizzaLogo.png" alt="">
+        <h1>Pizzarando</h1>
+    </header>
 
-    
-    <div>
-        <input minlength="1" id="menu" placeholder="Füge ein neues Menü hinzu"> <br>
-        <input min="0" value="0" type="number" id="price" placeholder="Füge einen neuen Preis hinzu"> <br>
-        <button onclick="onAddMenu()">Menü hinzufügen</button>
+    <div class="content">
+        <div class="menu" id="menu"></div>
+        <div class="basket" id="basket"></div>
     </div>
 
-    <div id="TextHier2"></div>
-
-
-
-    <br><br><br>
-
-
-    <div id="TextHier"></div>
-
-
+    <footer></footer>
 </body>
 
 </html>

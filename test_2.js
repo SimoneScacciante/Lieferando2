@@ -1,78 +1,62 @@
-let shoppingCartNames = [];
-let shoppingCartPrices = [];
-
-let arrayMenu = [
+let menus = [
     {
-        'name': 'Pizza Salami',
+        'name': 'Hamburger',
         'recepte': ['Tomatensoße', 'Salami', 'Käse', 'Peperoni'],
-        'price': 30,
+        'price': 10,
     },
 
     {
         'name': 'Pasta Carbonara',
         'recepte': ['Tomatensoße', 'Apfel'],
-        'price': 10,
+        'price': 7.5,
     },
 
     {
-        'name': 'Curry Wurst',
+        'name': 'Pizza Salami',
         'recepte': ['Kartoffel', 'Curry', 'Ketchup'],
-        'price': 5,
+        'price': 15,
     },
-
 ]
 
-function init() {
-    const basket = document.getElementById("foodID");
-    basket.innerHTML = '';
+let orderMenu = []
+let orderPrice = []
+let orderAmount = []
 
-    for (let i = 0; i < arrayMenu.length; i++) {
-        generateMenuHTML(i);
+function render() {
+    let menuID = document.getElementById('menuID');
+    menuID.innerHTML = '';
+
+    for (let i = 0; i < menus.length; i++) {
+        menuLoad(i);
     }
 }
 
-function generateMenuHTML(i) {
+function menuLoad(i) {
+    let menuID = document.getElementById('menuID');
+    const element = menus[i]
 
-    const basket = document.getElementById("foodID");
-    const element = arrayMenu[i];
-
-    basket.innerHTML += `
-    <div class="menu-container">
-        <div class="menu-box">
-            <div>
-                <div>
-                    <h1>${element['name']}</h1>
-                </div>
-                <div>${element['recepte']}</div>
-            </div>
-
-            <div class="menu-rightside">
-                <div><h3>${element['price']} €</h3></div>
-                <div><button onclick="addToBasket(${i})">Kaufen</button></div>
-            </div>
-        </div>
-    </div>
-    `;
+    menuID.innerHTML += /*html*/`
+    <div>
+        Name: ${element['name']} <br>
+        Zutaten: ${element['recepte']} <br>
+        Preis: ${element['price']} €  <br> 
+        Anzahl: ${orderAmount[i]} <br>
+        Bestellung: 
+        <input id="amountID${i}" type="number" min="1" max ="10" value="1"><br> 
+        <button onclick="addToBasket(${i})"> Kaufen </button> 
+    <br> <br> <br>   
+    </div> 
+`
 }
 
 
 function addToBasket(index) {
-
-
-    shoppingCartNames.push(arrayMenu[index]['name'])
-    shoppingCartPrices.push(arrayMenu[index]['price'])
-
-    let basket_2 = document.getElementById('addToBasketID');
-    basket_2.innerHTML = "";
-
-    for (let j = 0; j < shoppingCartNames.length; j++) {
-        basket_2.innerHTML += `
-        ${shoppingCartNames[j]} <br>
-        `;
-    }
+    let amount = getAmountFromInput(index);
 
 }
 
-
-
+function getAmountFromInput(input) {
+    let amountValue = +document.getElementById('amountID', input).value; //hier greift auf "amountID" und vergibt Index-Wert
+    return amountValue;
+}
 

@@ -93,3 +93,9 @@ function updateMenuDisplay() {
             </div>`;
     }
 }
+
+/*  ---damit amounts berechnung richtig funktioniert ersetzte Zeile 92 mit dieser Zeile hier unten---
+            <div>
+                ${menus[i]['name']} - ${menus[i]['price'] * amounts[i]}  € - Anzahl: ${amounts[i]}
+            </div>`;
+*/
