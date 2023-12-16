@@ -85,7 +85,11 @@ function updateMenuDisplay() {
         menuDisplay.innerHTML += `
     
             <div>
+<<<<<<< HEAD
                 ${menus[i]['name']} - ${menus[i]['price'] * amounts[i]}  € - Anzahl: ${amounts[i]}
+=======
+                ${menus[i]['name']} - ${menus[i]['price'] * amounts[i]} € - Anzahl: ${amounts[i]}
+>>>>>>> 6001a88fce483b0f32452beb0826b16562173ed1
             </div>`;
     }
 }

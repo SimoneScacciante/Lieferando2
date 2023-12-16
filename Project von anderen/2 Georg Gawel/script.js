@@ -25,8 +25,9 @@ let menus = [{
     },
 ]
 let orderMenu = []
-let orderAmount = []
 let orderPrice = []
+let orderAmount = []
+
 
 function render() {
     let menu = document.getElementById('menu');
