@@ -1,4 +1,4 @@
-let menus = [
+let menusArray = [
     {
         'name': 'Hamburger',
         'recepte': ['Tomatensoße', 'Salami', 'Käse', 'Peperoni'],
@@ -26,7 +26,7 @@ function render() {
     let menuID = document.getElementById('menuID');
     menuID.innerHTML = '';
 
-    for (let i = 0; i < menus.length; i++) {
+    for (let i = 0; i < menusArray.length; i++) {
         menuLoad(i);
     }
 }
@@ -52,11 +52,12 @@ function menuLoad(i) {
 
 function addToBasket(index) {
     let amount = getAmountFromInput(index);
+    const menu = menusArray[index]; // nun bekommt "menusArray" jedes einzelene Gericht (Json-String Abschnitt inner {}-Klammer) eine Index-Position
 
 }
 
 function getAmountFromInput(input) {
-    let amountValue = +document.getElementById('amountID', input).value; //hier greift auf "amountID" und vergibt Index-Wert
+    let amountValue = +document.getElementById('amountID', input).value; //hier greift auf "amountID" und verknüpfung mit  Index-Wert
     return amountValue;
 }
 
