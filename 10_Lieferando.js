@@ -40,7 +40,6 @@ function menuLoad(i) {
         Name: ${element['name']} <br>
         Zutaten: ${element['recepte']} <br>
         Preis: ${element['price']} €  <br> 
-        Anzahl: ${orderAmountArray[i]} <br>
         Bestellung: 
         <input id="amountID${i}" type="number" min="1" max ="10" value="1"><br> 
         <button onclick="addToBasket(${i})"> Kaufen </button> 
@@ -51,22 +50,25 @@ function menuLoad(i) {
 
 
 function addToBasket(index) {
-    /* let amount = getAmountFromInput(index);*/
-    const menuArrayIndex = menusArray[index]; // nun bekommt "menusArray" jedes einzelene Gericht (Json-String Abschnitt inner {}-Klammer) eine Index-Position
+    let amount = getAmountFromInput(index);
+    const menuArrayIndex = menusArray[index];
     let OrderName = getMenuIndex(menuArrayIndex['name']);
 
-    if (OrderName === -1) {
+    if (OrderName == -1) {
+        orderAmountArray.push(amount);
         orderMenuArray.push(menuArrayIndex['name']);
         orderPriceArray.push(menuArrayIndex['price']);
     } else {
-        document.getElementById('TestID').innerHTML += `Name bereits vorhanden!`
+        document.getElementById('TestID_1').innerHTML += `
+        Name bereits vorhanden!
+        `
     }
     renderBasket();
 }
 
-function getMenuIndex(menu) {
-    let indexOf = orderMenuArray.indexOf(menu);
-    return indexOf;
+function getAmountFromInput(input) {
+    let amountValue = +document.getElementById("amount" + input).value;
+    return amountValue;
 }
 
 function renderBasket() {
@@ -75,20 +77,19 @@ function renderBasket() {
 
     for (let k = 0; k < orderMenuArray.length; k++) {
 
-        basket.innerHTML = /*html*/ `
+        basket.innerHTML += /*html*/ `
        <div> 
             ${orderMenuArray[k]}  <br>
-           Preis: ${orderPriceArray[k]} <br>  
+           Preis: ${orderPriceArray[k]}€ <br>  
            Anzahl: ${orderAmountArray[k]} <br>
-       </div>
+       </div> <br> <br>
+       
         `;
     }
 }
 
-
-/*
-function getAmountFromInput(input) {
-    let amountValue = +document.getElementById('amountID', input).value; //hier greift auf "amountID" und verknüpfung mit  Index-Wert
-    return amountValue;
+function getMenuIndex(menu) {
+    let indexOf = orderMenuArray.indexOf(menu);
+    return indexOf;
 }
-*/
+

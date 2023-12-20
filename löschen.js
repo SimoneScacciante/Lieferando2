@@ -51,11 +51,12 @@ function menuLoad(i) {
 
 
 function addToBasket(index) {
-    /* let amount = getAmountFromInput(index);*/
-    const menuArrayIndex = menusArray[index]; // nun bekommt "menusArray" jedes einzelene Gericht (Json-String Abschnitt inner {}-Klammer) eine Index-Position
+    let amount = getAmountFromInput(index);
+    const menuArrayIndex = menusArray[index]; 
     let OrderName = getMenuIndex(menuArrayIndex['name']);
 
     if (OrderName === -1) {
+        orderAmountArray.push(amount)
         orderMenuArray.push(menuArrayIndex['name']);
         orderPriceArray.push(menuArrayIndex['price']);
     } else {
@@ -85,10 +86,8 @@ function renderBasket() {
     }
 }
 
-
-/*
 function getAmountFromInput(input) {
     let amountValue = +document.getElementById('amountID', input).value; //hier greift auf "amountID" und verknüpfung mit  Index-Wert
     return amountValue;
 }
-*/
+

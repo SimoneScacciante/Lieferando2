@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 let menus = [{
     'name': 'Pizza Salami',
     'price': '12.99',
@@ -36,101 +35,6 @@ function render() {
 
     for (let i = 0; i < menus.length; i++) {
         menuLoad(i);
-=======
-
-
-let menus = [
-    {
-        'name': 'Hamburger',
-        'recepte': ['Tomatensoße', 'Salami', 'Käse', 'Peperoni'],
-        'price': 10,
-    },
-
-    {
-        'name': 'Pasta Carbonara',
-        'recepte': ['Tomatensoße', 'Apfel'],
-        'price': 7.5,
-    },
-
-    {
-        'name': 'Pizza Salami',
-        'recepte': ['Kartoffel', 'Curry', 'Ketchup'],
-        'price': 15,
-    },
-]
-
-let amounts = [1, 1, 1];
-let orderMenu = []
-let orderPrice = []
-
-
-function init() {
-
-    let TextHier2 = document.getElementById('TextHier2');
-    TextHier2.innerHTML = '';
-
-    for (let j = 0; j < menus.length; j++) {
-        TextHier2.innerHTML += `
-        <div>
-        ${menus[j]['name']} - ${menus[j]['price']} € - Anzahl: ${amounts[j]} 
-        <button> Kaufen </button>
-        </div> 
-        `
-    }
-}
-
-
-function getValueFromInput(id) {
-    return document.getElementById(id).value;
-}
-
-function getMenuFromInput() {
-    return getValueFromInput('menu').trim();
-}
-
-function getPriceFromInput() {
-    let price = getValueFromInput('price');
-    var x = Number(price);
-    return x;
-}
-
-function onAddMenu() {
-    let newMenu = getMenuFromInput();
-    let newPrice = getPriceFromInput();
-    let i = getMenuIndex(newMenu);
-
-    if (i === -1) {
-        menus.push({ 'name': newMenu, 'price': newPrice });
-        amounts.push(1);
-    } else {
-        amounts[i] = amounts[i] + newPrice;
-    }
-
-    updateMenuDisplay();
-}
-
-
-function getMenuIndex(menuIndex) {
-    for (let i = 0; i < menus.length; i++) {
-        if (menus[i]['name'] === menuIndex) {
-            return i;
-        }
-    }
-    return -1;
-}
-
-
-function updateMenuDisplay() {
-    let menuDisplay = document.getElementById('TextHier');
-    menuDisplay.innerHTML = '';
-
-    for (let i = 0; i < menus.length; i++) {
-        menuDisplay.innerHTML += `
-    
-            <div>
-                ${menus[i]['name']} - ${menus[i]['price'] * amounts[i]} € - Anzahl: ${amounts[i]}
-            </div>`;
->>>>>>> 6001a88fce483b0f32452beb0826b16562173ed1
     }
 }
 
@@ -157,12 +61,14 @@ function menuLoad(i) {
 `;
 }
 
+
+
 function addToBasket(index) {
     let amount = getAmountFromInput(index);
     const menu = menus[index];
     let orderBasket = getMenuIndex(menu['name']);
 
-    if (orderBasket == -1) {
+    if (orderBasket === -1) {
         orderAmount.push(amount);
         orderMenu.push(menu['name']);
         orderPrice.push(menu['price']);
@@ -176,12 +82,12 @@ function addToBasket(index) {
 
 function renderBasket() {
     let basket = document.getElementById("basket");
-    let sum = 0;
     basket.innerHTML = '';
+    let sum = 0;
     for (let i = 0; i < orderMenu.length; i++) {
         let price = orderAmount[i] * orderPrice[i];
         sum += orderAmount[i] * orderPrice[i];
-        basket.innerHTML += `
+        basket.innerHTML += /*html*/`
     <div class="basketCard">
     <b>${orderMenu[i]}</b>
     <span class="basketSpan"><input id="amountBasket${i}" type="number" value="${orderAmount[i]}" step="1" min="1">
@@ -192,6 +98,12 @@ function renderBasket() {
     `;
     }
     basket.innerHTML += `<div><b>Total: ${sum.toFixed(2)}€<b/></div>`;
+}
+
+
+function getMenuIndex(menu) {
+    let indexOf = orderMenu.indexOf(menu);
+    return indexOf;
 }
 
 function reloadNewAmount(index) {
@@ -207,10 +119,6 @@ function getAmountFromInput(input) {
     return amountValue;
 }
 
-function getMenuIndex(menu) {
-    let indexOf = orderMenu.indexOf(menu);
-    return indexOf;
-}
 
 function removeFromBasket(index) {
     orderMenu.splice(index, 1);
