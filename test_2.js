@@ -51,9 +51,21 @@ function menuLoad(i) {
 
 
 function addToBasket(index) {
+<<<<<<< HEAD
     /* let amount = getAmountFromInput(index);*/
     const menuArrayIndex = menusArray[index]; // nun bekommt "menusArray" jedes einzelene Gericht (Json-String Abschnitt inner {}-Klammer) eine Index-Position
     let OrderName = getMenuIndex(menuArrayIndex['name']);
+=======
+    let amount = getAmountFromInput(index);
+    const menu = menusArray[index]; // nun bekommt "menusArray" jedes einzelene Gericht (Json-String Abschnitt inner {}-Klammer) eine Index-Position
+    let orderBasket = getMenuIndex(orderMenuArray['name']);
+
+    if (orderMenuArray == -1) {
+        orderMenuArray.push(orderBasket)
+    } else {
+        
+    }
+>>>>>>> 26061b22c72ffdb267424416c00968004576145f
 
     if (OrderName === -1) {
         orderMenuArray.push(menuArrayIndex['name']);
@@ -64,6 +76,7 @@ function addToBasket(index) {
     renderBasket();
 }
 
+<<<<<<< HEAD
 function getMenuIndex(menu) {
     let indexOf = orderMenuArray.indexOf(menu);
     return indexOf;
@@ -87,8 +100,20 @@ function renderBasket() {
 
 
 /*
+=======
+function getMenuIndex (menu) {
+    let indexOf = orderMenuArray.IndexOf(menu);
+    return indexOf;
+}
+
+
+>>>>>>> 26061b22c72ffdb267424416c00968004576145f
 function getAmountFromInput(input) {
     let amountValue = +document.getElementById('amountID', input).value; //hier greift auf "amountID" und verknüpfung mit  Index-Wert
     return amountValue;
 }
+<<<<<<< HEAD
 */
+=======
+
+>>>>>>> 26061b22c72ffdb267424416c00968004576145f

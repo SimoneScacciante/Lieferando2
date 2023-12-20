@@ -40,6 +40,10 @@ function menuLoad(i) {
         Name: ${element['name']} <br>
         Zutaten: ${element['recepte']} <br>
         Preis: ${element['price']} €  <br> 
+<<<<<<< HEAD
+=======
+        Anzahl: ${orderAmountArray[i]} <br>
+>>>>>>> 26061b22c72ffdb267424416c00968004576145f
         Bestellung: 
         <input id="amountID${i}" type="number" min="1" max ="10" value="1"><br> 
         <button onclick="addToBasket(${i})"> Kaufen </button> 
