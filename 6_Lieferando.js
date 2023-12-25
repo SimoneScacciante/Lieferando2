@@ -80,12 +80,12 @@ function getMenuIndex(menuIndex) {
 function updateMenuDisplay() {
     let menuDisplay = document.getElementById('TextHier');
     menuDisplay.innerHTML = '';
-
+                                                        // amount in Zeile 87 ausrechnen (multiplizieren)
     for (let i = 0; i < menus.length; i++) {
-        menuDisplay.innerHTML += `
-    
-            <div>
+            menuDisplay.innerHTML += `
+            <div>                           
                 ${menus[i]['name']} - ${menus[i]['price'] * amounts[i]}  € - Anzahl: ${amounts[i]}
-            </div>`;
+            </div>
+            `;
+        }
     }
-}

@@ -7,13 +7,18 @@
     <title>Lieferando</title>
     <script src="6_Lieferando.js"></script>
     <style>
+        .border {
+            border: 1px solid black;
+            border-width: 10px;
+            width: 300px;
+        }
     </style>
 </head>
 
 <body onload="init()">
     <h1>Lieferando</h1>
 
-    
+
     <div>
         <input minlength="1" id="menu" placeholder="Füge ein neues Menü hinzu"> <br>
         <input min="1" value="1" type="number" id="price" placeholder="Füge einen neuen Preis hinzu"> <br>
@@ -21,8 +26,10 @@
     </div>
     <br>
 
-    <div id="TextHier2"></div>
-
+    <div class="border">
+        <h3>DIESEN TEIL IGNORIEREN</h3>
+        <div id="TextHier2"></div>
+    </div>
 
 
     <br><br><br><br>

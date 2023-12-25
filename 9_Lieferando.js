@@ -75,7 +75,7 @@ function renderBasket() {
        <div> 
             ${orderMenuArray[k]}  <br>
            Preis: ${orderPriceArray[k]}€ <br>  
-           Anzahl: ${orderAmountArray[k]} <br>
+           Anzahl: ${orderAmountArray[k]} <br>      <!-- Array ist leer, kein Wert, Siehe next Aufgabe -->
        </div> <br> <br>
        
         `;

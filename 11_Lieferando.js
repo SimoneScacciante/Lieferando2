@@ -6,13 +6,13 @@ let menusArray = [
     },
 
     {
-        'name': 'Pasta Carbonara',
+        'name': 'Carbonara',
         'recepte': ['Tomatensoße', 'Apfel'],
         'price': 7.5,
     },
 
     {
-        'name': 'Pizza Salami',
+        'name': 'Pizza',
         'recepte': ['Kartoffel', 'Curry', 'Ketchup'],
         'price': 15,
     },
@@ -50,18 +50,19 @@ function menuLoad(i) {
 
 
 function addToBasket(index) {
-    let amount = getAmountFromInput(index);     // amount = Wert aus Input
+    let amount = getAmountFromInput(index);     
     const menuArrayIndex = menusArray[index];
     let OrderName = getMenuIndex(menuArrayIndex['name']);
 
     if (OrderName == -1) {
-        orderAmountArray.push(amount);          // Input Wert geht in entsprechender Array
+        orderAmountArray.push(amount);         
         orderMenuArray.push(menuArrayIndex['name']);
         orderPriceArray.push(menuArrayIndex['price']);
     } else {
-        document.getElementById('TestID_1').innerHTML += `
-        Name bereits vorhanden!
-        `
+        orderAmountArray[OrderName] += amount;  // Aktualisiere die Anzahl
+        // "[OrderName] mit [orderAmountArray] zu verknüpfen ist essentiel"
+        // somit erhält der Array eine Index Position, andernfalls würde man nicht
+        // unterscheiden können zwischen "orderAmountArray" von 0:Hamburger, 1:Carbonara, 2:Pizza Gericht
     }
     renderBasket();
 }
@@ -80,8 +81,8 @@ function renderBasket() {
         basket.innerHTML += /*html*/ `
        <div> 
             ${orderMenuArray[k]}  <br>
-           Preis: ${orderPriceArray[k]}€ <br>  
-           Anzahl: ${orderAmountArray[k]} <br>          <!-- Wert aus zuvor eingefügten Array wird ausgegeben-->
+           Preis: ${orderPriceArray[k]}€ <br> 
+           Anzahl: ${orderAmountArray[k]} <br>  <!-- Anzahl wird übernommen-->     
        </div> <br> <br>
         `;
     }
