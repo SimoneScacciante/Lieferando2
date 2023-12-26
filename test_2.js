@@ -6,13 +6,13 @@ let menusArray = [
     },
 
     {
-        'name': 'Pasta Carbonara',
+        'name': 'Carbonara',
         'recepte': ['Tomatensoße', 'Apfel'],
         'price': 7.5,
     },
 
     {
-        'name': 'Pizza Salami',
+        'name': 'Pizza',
         'recepte': ['Kartoffel', 'Curry', 'Ketchup'],
         'price': 15,
     },
@@ -40,46 +40,39 @@ function menuLoad(i) {
         Name: ${element['name']} <br>
         Zutaten: ${element['recepte']} <br>
         Preis: ${element['price']} €  <br> 
-        Anzahl: ${orderAmountArray[i]} <br>
         Bestellung: 
         <input id="amountID${i}" type="number" min="1" max ="10" value="1"><br> 
         <button onclick="addToBasket(${i})"> Kaufen </button> 
     <br> <br> <br>   
     </div> 
-`
+    `;
 }
 
 
 function addToBasket(index) {
-<<<<<<< HEAD
-    /* let amount = getAmountFromInput(index);*/
-    const menuArrayIndex = menusArray[index]; // nun bekommt "menusArray" jedes einzelene Gericht (Json-String Abschnitt inner {}-Klammer) eine Index-Position
+    let amount = getAmountFromInput(index);     
+    const menuArrayIndex = menusArray[index];
     let OrderName = getMenuIndex(menuArrayIndex['name']);
-=======
-    let amount = getAmountFromInput(index);
-    const menu = menusArray[index]; // nun bekommt "menusArray" jedes einzelene Gericht (Json-String Abschnitt inner {}-Klammer) eine Index-Position
-    let orderBasket = getMenuIndex(orderMenuArray['name']);
 
-    if (orderMenuArray == -1) {
-        orderMenuArray.push(orderBasket)
-    } else {
-        
-    }
->>>>>>> 26061b22c72ffdb267424416c00968004576145f
-
-    if (OrderName === -1) {
+    if (OrderName == -1) {
+        orderAmountArray.push(amount);         
         orderMenuArray.push(menuArrayIndex['name']);
         orderPriceArray.push(menuArrayIndex['price']);
     } else {
-        document.getElementById('TestID').innerHTML += `Name bereits vorhanden!`
+        orderAmountArray[OrderName] += amount;  
+        orderPriceArray[OrderName] = orderAmountArray[OrderName] * menuArrayIndex['price'];
     }
     renderBasket();
 }
 
-<<<<<<< HEAD
 function getMenuIndex(menu) {
     let indexOf = orderMenuArray.indexOf(menu);
     return indexOf;
+}    
+
+function getAmountFromInput(input) {
+    let amountValue = +document.getElementById("amountID" + input).value;
+    return amountValue;
 }
 
 function renderBasket() {
@@ -88,32 +81,13 @@ function renderBasket() {
 
     for (let k = 0; k < orderMenuArray.length; k++) {
 
-        basket.innerHTML = /*html*/ `
+        basket.innerHTML += /*html*/ `
        <div> 
-            ${orderMenuArray[k]}  <br>
-           Preis: ${orderPriceArray[k]} <br>  
-           Anzahl: ${orderAmountArray[k]} <br>
-       </div>
+            Gericht: ${orderMenuArray[k]}  <br>
+           Preis einzeln: ${orderPriceArray[k]}€ <br> 
+           Anzahl: ${orderAmountArray[k]} <br>      
+       </div> <br> <br>
         `;
     }
 }
 
-
-/*
-=======
-function getMenuIndex (menu) {
-    let indexOf = orderMenuArray.IndexOf(menu);
-    return indexOf;
-}
-
-
->>>>>>> 26061b22c72ffdb267424416c00968004576145f
-function getAmountFromInput(input) {
-    let amountValue = +document.getElementById('amountID', input).value; //hier greift auf "amountID" und verknüpfung mit  Index-Wert
-    return amountValue;
-}
-<<<<<<< HEAD
-*/
-=======
-
->>>>>>> 26061b22c72ffdb267424416c00968004576145f

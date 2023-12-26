@@ -63,9 +63,18 @@ function addToBasket(index) {
         // "[OrderName] mit [orderAmountArray] zu verknüpfen ist essentiel"
         // somit erhält der Array eine Index Position, andernfalls würde man nicht
         // unterscheiden können zwischen "orderAmountArray" von 0:Hamburger, 1:Carbonara, 2:Pizza Gericht
+        orderPriceArray[OrderName] = orderAmountArray[OrderName] * menuArrayIndex['price'];
+        // Hier musst du ebenfalls z.B orderAmountArray[OrderName] mit [OrderName] vergeben wegen Index position
+        // Ohne [OrderName] würdest du immer die gesamte orderAmountArray mit dem Preis des Gerichts multiplizieren
+        // da es den Gesamtpreis für alle bestellten Gerichte zusammengeben würde, anstatt den Preis für jedes Gericht separat zu berechnen.
     }
     renderBasket();
 }
+
+function getMenuIndex(menu) {
+    let indexOf = orderMenuArray.indexOf(menu);
+    return indexOf;
+}    
 
 function getAmountFromInput(input) {
     let amountValue = +document.getElementById("amountID" + input).value;
@@ -80,16 +89,11 @@ function renderBasket() {
 
         basket.innerHTML += /*html*/ `
        <div> 
-            ${orderMenuArray[k]}  <br>
-           Preis: ${orderPriceArray[k]}€ <br> 
+            Gericht: ${orderMenuArray[k]}  <br>
+           Preis einzeln: ${orderPriceArray[k]}€ <br> 
            Anzahl: ${orderAmountArray[k]} <br>  <!-- Anzahl wird übernommen-->     
        </div> <br> <br>
         `;
     }
-}
-
-function getMenuIndex(menu) {
-    let indexOf = orderMenuArray.indexOf(menu);
-    return indexOf;
 }
 

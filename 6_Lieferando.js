@@ -84,7 +84,7 @@ function updateMenuDisplay() {
     for (let i = 0; i < menus.length; i++) {
             menuDisplay.innerHTML += `
             <div>                           
-                ${menus[i]['name']} - ${menus[i]['price'] * amounts[i]}  € - Anzahl: ${amounts[i]}
+                Gericht: ${menus[i]['name']} - Gesamtpreis: ${menus[i]['price'] * amounts[i]}  € - Anzahl: ${amounts[i]}
             </div>
             `;
         }
