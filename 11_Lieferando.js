@@ -50,26 +50,22 @@ function menuLoad(i) {
 
 
 function addToBasket(index) {
-    let amount = getAmountFromInput(index);     
+    let amount = getAmountFromInput(index);
     const menuArrayIndex = menusArray[index];
     let OrderName = getMenuIndex(menuArrayIndex['name']);
 
     if (OrderName == -1) {
-        orderAmountArray.push(amount);         
+        orderAmountArray.push(amount);
         orderMenuArray.push(menuArrayIndex['name']);
-        orderPriceArray.push(menuArrayIndex['price']);
+        const price = amount * menuArrayIndex['price'];
+        orderPriceArray.push(price);
     } else {
-        orderAmountArray[OrderName] += amount;  // Aktualisiere die Anzahl
-        // "[OrderName] mit [orderAmountArray] zu verknüpfen ist essentiel"
-        // somit erhält der Array eine Index Position, andernfalls würde man nicht
-        // unterscheiden können zwischen "orderAmountArray" von 0:Hamburger, 1:Carbonara, 2:Pizza Gericht
+        orderAmountArray[OrderName] += amount;  
         orderPriceArray[OrderName] = orderAmountArray[OrderName] * menuArrayIndex['price'];
-        // Hier musst du ebenfalls z.B orderAmountArray[OrderName] mit [OrderName] vergeben wegen Index position
-        // Ohne [OrderName] würdest du immer die gesamte orderAmountArray mit dem Preis des Gerichts multiplizieren
-        // da es den Gesamtpreis für alle bestellten Gerichte zusammengeben würde, anstatt den Preis für jedes Gericht separat zu berechnen.
     }
     renderBasket();
 }
+
 
 function getMenuIndex(menu) {
     let indexOf = orderMenuArray.indexOf(menu);
