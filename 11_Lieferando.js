@@ -1,4 +1,4 @@
-let menusArray = [
+let menuArray = [
     {
         'name': 'Hamburger',
         'recepte': ['Tomatensoße', 'Salami', 'Käse', 'Peperoni'],
@@ -26,14 +26,14 @@ function render() {
     let menuID = document.getElementById('menuID');
     menuID.innerHTML = '';
 
-    for (let i = 0; i < menusArray.length; i++) {
+    for (let i = 0; i < menuArray.length; i++) {
         menuLoad(i);
     }
 }
 
 function menuLoad(i) {
     let menuID = document.getElementById('menuID');
-    const element = menusArray[i]
+    const element = menuArray[i]
 
     menuID.innerHTML += /*html*/`
     <div>
@@ -51,26 +51,26 @@ function menuLoad(i) {
 
 function addToBasket(index) {
     let amount = getAmountFromInput(index);
-    const menuArrayIndex = menusArray[index];
-    let OrderName = getMenuIndex(menuArrayIndex['name']);
+    let OrderName = getMenuIndex(menuArray[index]['name']);
 
     if (OrderName == -1) {
-        orderAmountArray.push(amount);
-        orderMenuArray.push(menuArrayIndex['name']);
-        const price = amount * menuArrayIndex['price'];
-        orderPriceArray.push(price);
+        orderAmountArray.push(amount);                      // Fazit: Berechnung für Gesamtpreis im "if" teil ist definiert und funktioniert! 
+        orderMenuArray.push(menuArray[index]['name']);      
+        const price = amount * menuArray[index]['price'];   // nimm meinen "amount" also die Zahl die ich im Input eingebe z.B 5 und multipliziere mit definierten Preis (bei Hamburger 10€)
+        orderPriceArray.push(price);                        // füge das Ergebnis (5x Hamburger * 10€ = 50€) im "orderPriceArray" // Siehe Zeile 90
+
     } else {
-        orderAmountArray[OrderName] += amount;  
-        orderPriceArray[OrderName] = orderAmountArray[OrderName] * menuArrayIndex['price'];
+        orderAmountArray[OrderName] += amount;              // Füge jede weitere amount Input eingabe von mir in den "orderAmountArray"
+        orderPriceArray[OrderName] = orderAmountArray[OrderName] * menuArray[index]['price']; // Multipliziere meine gesamt Amount (Inhalt von "orderAmountArray") mit den Fixen vordefinierten Preis
+                                                                                        // das ergibt mein Gesamtpreis = "orderPriceArray"
     }
     renderBasket();
 }
 
-
 function getMenuIndex(menu) {
     let indexOf = orderMenuArray.indexOf(menu);
     return indexOf;
-}    
+}
 
 function getAmountFromInput(input) {
     let amountValue = +document.getElementById("amountID" + input).value;
@@ -86,8 +86,9 @@ function renderBasket() {
         basket.innerHTML += /*html*/ `
        <div> 
             Gericht: ${orderMenuArray[k]}  <br>
-           Preis einzeln: ${orderPriceArray[k]}€ <br> 
-           Anzahl: ${orderAmountArray[k]} <br>  <!-- Anzahl wird übernommen-->     
+            Einzelpreis: ${menuArray[k]['price']}€ <br>
+           Gesamtpreis: ${orderPriceArray[k]}€ <br> 
+           Anzahl: ${orderAmountArray[k]} <br>   
        </div> <br> <br>
         `;
     }

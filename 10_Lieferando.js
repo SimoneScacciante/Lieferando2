@@ -56,11 +56,11 @@ function addToBasket(index) {
 
     if (OrderName == -1) {
         orderAmountArray.push(amount);          // Input Wert geht in entsprechender Array
-        orderMenuArray.push(menuArrayIndex['name']);
+        orderMenuArray.push(menuArrayIndex['name']);  // Berechnung für Gesamtpreis nicht definiert!
         orderPriceArray.push(menuArrayIndex['price']);
-    } else {
+    } else {                                    // else Abfrage funktioniert
         document.getElementById('TestID_1').innerHTML += `
-        Name bereits vorhanden!
+        Name bereits vorhanden!                 
         `
     }
     renderBasket();
@@ -81,7 +81,7 @@ function renderBasket() {
        <div> 
             ${orderMenuArray[k]}  <br>
            Preis: ${orderPriceArray[k]}€ <br>  
-           Anzahl: ${orderAmountArray[k]} <br>          <!-- Wert aus zuvor eingefügten Array wird ausgegeben-->
+           Anzahl: ${orderAmountArray[k]} <br>          <!--Anzahl wird übernommen, Wert aus zuvor eingefügten Array wird ausgegeben-->
        </div> <br> <br>
         `;
     }

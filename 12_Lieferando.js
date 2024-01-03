@@ -51,19 +51,18 @@ function menuLoad(i) {
 
 function addToBasket(index) {
     let amount = getAmountFromInput(index);
-    //const menuArrayIndex = menuArray[index];   <<==geht auch als abkürzung==>>
     let OrderName = getMenuIndex(menuArray[index]['name']);
 
     if (OrderName == -1) {
-        orderAmountArray.push(amount);
-        orderMenuArray.push(menuArray[index]['name']);
-        const price = amount * menuArray[index]['price']; // die Berechnung um auf Gesamtpreis zu kommen
-        orderPriceArray.push(price);  // Berechnung Gesamtpreis in neuen Leeren Array Price einfügen
+        orderAmountArray.push(amount);                      
+        orderMenuArray.push(menuArray[index]['name']);      
+        const price = amount * menuArray[index]['price'];   
+        orderPriceArray.push(price);                       
 
     } else {
-        orderAmountArray[OrderName] += amount; // [OrderName] einfügen da nicht wie im "if (...)" KLammer vordefiniert ist
-        orderPriceArray[OrderName] = orderAmountArray[OrderName] * menuArray[index]['price']; // Berechnung soll bei Else Abfrage wieder durchgeführt werden
-
+        orderAmountArray[OrderName] += amount;              
+        orderPriceArray[OrderName] = orderAmountArray[OrderName] * menuArray[index]['price']; 
+                                                                                        
     }
     renderBasket();
 }
@@ -87,7 +86,8 @@ function renderBasket() {
         basket.innerHTML += /*html*/ `
        <div> 
             Gericht: ${orderMenuArray[k]}  <br>
-           Preis einzeln: ${orderPriceArray[k]}€ <br> 
+            Einzelpreis: ${menuArray[k]['price']}€ <br>
+           Gesamtpreis: ${orderPriceArray[k]}€ <br> 
            Anzahl: ${orderAmountArray[k]} <br>   
        </div> <br> <br>
         `;
