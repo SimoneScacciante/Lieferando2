@@ -89,6 +89,9 @@ function renderBasket() {
             Einzelpreis: ${menuArray[k]['price']}€ <br>
            Gesamtpreis: ${orderPriceArray[k]}€ <br> 
            Anzahl: ${orderAmountArray[k]} <br>   
+           <div class="button"><input type="number" min="1" max ="10" value="1"><br> <img src="img/reload.png" > <img src="img/delete.png"></div>  
+
+
        </div> <br> <br>
         `;
     }
