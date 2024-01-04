@@ -88,29 +88,18 @@ function renderBasket() {
             Gericht: ${orderMenuArray[k]}  <br>
             Einzelpreis: ${menuArray[k]['price']}€ <br>
            Gesamtpreis: ${orderPriceArray[k]}€ <br> 
-           Anzahl: ${orderAmountArray[k]} <br>                                      <!-- Zeile: 92 im value des Input kommt orderAmountArray somit wird immer  aktuelle amount Zahl immer angezeigt innerhalb Inputfeld -->
+           Anzahl: ${orderAmountArray[k]} <br>                                   
            <div class="button"><input id="amountBasket${k}" type="number" min="1" max ="10" value="${orderAmountArray[k]}"><br> <img onclick="reloadNewAmount(${k})" src="img/reload.png" > <img src="img/delete.png"></div>  
         </div> <br> <br>
         `;
     }
 }
 
-function reloadNewAmount(index) {   // Aktualisierung von amount Wert des neuen Inputfeldes
-    let amountValue = +document.getElementById("amountBasket" + index).value; // Der neue von die gewählte Amount Wert im neuen Inputfeld "
-    let OrderNameIndexOf = getMenuIndex(menuArray[index]['name']); // IndexOf von "orderMenuArray" vom Namen "Hamburger" oder "Carbonara" oder "Pizza"  // menuArray[index] könntest mit =  "const menu = menuArray[index];" Zusammenfassen
-    orderAmountArray.splice(OrderNameIndexOf, 1, amountValue);
+function reloadNewAmount(index) {  
+    let amountValue = +document.getElementById("amountBasket" + index).value; 
+    let OrderNameIndexOf = getMenuIndex(menuArray[index]['name']);
     renderBasket();
 }
-
-
-// <<<<====== orderAmountArray.splice(OrderNameIndexOf, 1, amountValue); =====>>>>>>>>>
-
-// OrderNameIndexOf sagt uns, an welcher Position im orderAmountArray wir etwas ändern möchten.
-// Die 1 bedeutet, dass wir genau ein Element an dieser Position ersetzen möchten.
-// amountValue ist der neue Wert, den wir an dieser Stelle einsetzen möchten.
-// Zusammengefasst bedeutet dies, dass wir den Wert in orderAmountArray an der Position OrderNameIndexOf 
-// durch amountValue ersetzen, um die Bestellmenge für ein bestimmtes Gericht zu aktualisieren. 
-// Dies geschieht, wenn Sie die Menge im Eingabefeld ändern und auf das "reload"-Bild klicken.
 
 
 
