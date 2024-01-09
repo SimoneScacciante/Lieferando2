@@ -40,7 +40,7 @@ function menuLoad(i) {
         Name: ${element['name']} <br>
         Zutaten: ${element['recepte']} <br>
         Preis: ${element['price']} €  <br> 
-        Bestellung: <input id="amountID${i}" type="number" min="1" max ="10" value="1"><br> <!-- im Project 15_lieferando.js entferne Input (veränderung am Value findet statt) -->
+        Bestellung: <input id="amountID${i}" type="number" min="1" max ="10" value="1"><br> <!-- ENTFERNE!!! -->
         <button onclick="addToBasket(${i})"> Kaufen </button> 
     <br> <br> <br>   
     </div> 
@@ -86,7 +86,7 @@ function renderBasket() {
        <div class="border"> 
             Gericht: ${orderMenuArray[k]}  <br>
             Einzelpreis Fix: ${menuArray[k]['price']}€ <br>
-            Gesamtpreis: ${orderPriceArray[k]}€ <===funktioneirt nur bei IF-Funktion===> <br> <!-- Funktioniert NUR in der IF-Funktion!!!--> 
+            Gesamtpreis: ${orderPriceArray[k]}€ <===funktioneirt nur bei IF-Funktion===> <br> 
             <br>
             Gesamtpreis: ${orderAmountArray[k] * menuArray[k]['price']}€ <br>                                   
             Gesamtanzahl: ${orderAmountArray[k]} <br>                                   
@@ -94,7 +94,7 @@ function renderBasket() {
 
             <div class="basketStyle">
                 <div class="button"> 
-                    <img src="/img/down.png" onclick="downNewAmount(${k})"> <!--"decrease" Funktion-->
+                    <img src="/img/down.png" onclick="downNewAmount(${k})"> 
                 </div>
             
                 <div id="amountBasket${k}"> 
@@ -102,26 +102,28 @@ function renderBasket() {
                 </div>
 
                 <div class="button">
-                    <img src="/img/up.png" onclick="upNewAmount(${k})"> <!--"increase" Funktion-->
+                    <img src="/img/up.png" onclick="upNewAmount(${k})"> 
                 </div>
             </div>
         </div>
         <br> <br> <br>
+
+        Gesamtpreis Aller Gerichte: XX € ((<===Berechnung durchführen===>))
         `;
     }
 }
 
 
 function upNewAmount(index) {
-    let OrderNameIndexOf = getMenuIndex(orderMenuArray[index]); // vom neuen Array der Index Name z.B neu eingefügten "Hamburger" = OrderNameIndexOf (wichtig für Position erkennung = setzt Index Position)
-    orderAmountArray[OrderNameIndexOf] += 1; // Erhöhe die Menge um 1 bei jeden Klick am entsprechenden angewählten Namen z.B Hamburger
+    let OrderNameIndexOf = getMenuIndex(orderMenuArray[index]); 
+    orderAmountArray[OrderNameIndexOf] += 1; 
     renderBasket();
 }
 
 function downNewAmount(index) {
     let OrderNameIndexOf = getMenuIndex(orderMenuArray[index]);
-    if (orderAmountArray[OrderNameIndexOf] > 1) { // wenn meine Zahl größer als 1 ist dann führe nächste Zeile also -1 aus
-        orderAmountArray[OrderNameIndexOf] -= 1; // wenn aber Zahl die Bedingung NICHT erfüllt, dann führe NIX aus (da keine Else definiert)
+    if (orderAmountArray[OrderNameIndexOf] > 1) { 
+        orderAmountArray[OrderNameIndexOf] -= 1;
         renderBasket();
     }
 }

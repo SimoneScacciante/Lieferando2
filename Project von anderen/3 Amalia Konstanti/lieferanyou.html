@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lieferanyou</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+    <script type="text/javascript" src="array.js"></script>
+    <script type="text/javascript" src="templates.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="icon" type="image/png" href="./img/icons/logo.png">
+</head>
+
+<body onload="initDishes()">
+
+    <header>
+        <div class="logo-section">
+            <img src="./img/icons/logo.png" alt="Logo von Lieferanyou">
+            <h1>Lieferanyou</h1>
+        </div>
+        <span><a href="#amount">Speisekarte</a></span>
+    </header>
+
+    <div id="main-cont" class="main-container">
+        <!--main container-start-->
+        <div id="left" class="left">
+            <!--left side-start-->
+            <img class="restaurant-img opacity" src="./img/restaurants-img.jpg" alt="Bild von verschiedenen Speisen">
+            <div class="logo-and-rating-container opacity">
+                <div class="restaurant-icon-container opacity">
+                    <img class="restaurant-icon-img opacity" src="./img/icons/amalthea-icon.png" alt="Logo des Restaurants">
+                </div>
+                <section class="name-and-rating opacity">
+                    <h2>Amalthea</h2>
+                    <div class="show-togheter">
+                        <div class="rating">
+                            <img class="star" src="./img/icons/star-rating.jpg" alt="Bewertung mit bis zu 5 Sternen">
+                            <img class="star" src="./img/icons/star-rating.jpg" alt="Bewertung mit bis zu 5 Sternen">
+                            <img class="star" src="./img/icons/star-rating.jpg" alt="Bewertung mit bis zu 5 Sternen">
+                            <img class="star" src="./img/icons/star-rating.jpg" alt="Bewertung mit bis zu 5 Sternen">
+                            <img class="star" src="./img/icons/star-rating.jpg" alt="Bewertung mit bis zu 5 Sternen">
+                        </div>
+                        <div class="amount-of-ratings">
+                            <span id="amount" class="amount">1,5k Bewertungen</span>
+                        </div>
+                    </div>
+                    <div class="bag-and-bike-icon-container">
+                        <img class="shopping-bag-icon" src="./img/icons/shopping-bag.png" alt="Bestelltüte">
+                        <span>Min. 20,00€</span>
+                        <span class="dott">·</span>
+                        <img class="bike" src="./img/icons/bike.png" alt="Fahrrad">
+                        <span>2,00€</span>
+                    </div>
+                </section>
+                <div class="menu-categories opacity">
+                    <!--Menüleiste mit Kategorien-->
+                    <ul id="menu-list" class="menu-list">
+                        <li><a href="#beliebt">Beliebt</a></li>
+                        <li><a href="#vorspeisen">Vorspeisen</a></li>
+                        <li><a href="#salate">Salate</a></li>
+                        <li><a href="#hauptgerichte">Hauptgerichte</a></li>
+                        <li><a href="#nachtisch">Nachtisch</a></li>
+                        <li><a href="#getränke">Getränke</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="hr-horizontal opacity">
+            <div id="orderCompleted" class="completed visibility">
+                <img id="img-cancel" onclick="orderCompleted()" class="cancel" src="./img/icons/cancel.png" alt="X zum Schließen des Warenkorbes">
+                <h2>Bestellung erfolgreich übermittelt!</h2>
+                <span class="text-completed">
+                Deine Bestellung wurde erfolgreich an Amalthea übermittelt.<br>
+                Die vorausichtliche Lieferzeit beträgt 45 Minuten.
+            </span>
+                <span class="text-completed"><b>Danke für deine Bestellung über Lieferanyou.</b></span>
+            </div>
+            <section class="the-menus opacity">
+                <!--Menü-Übersicht-->
+
+
+                <h3 class="categorie-name">Beliebt</h3>
+
+                <div id="menuFavorites">
+                    <div class="name-of-dish"></div>
+                    <div class="description-of-dish"></div>
+                    <div class="price-of-dish"></div>
+                </div>
+
+                <div id="vorspeisen" class="categories-img-container">
+                    <!--Bild der Kategorie Vorspeisen-->
+                    <img class="categories-img" src="./img/vorspeisen-img.jpg" alt="Bild von Vorspeisen">
+                </div>
+
+                <h3 class="categorie-name">Vorspeisen</h3>
+
+                <div id="menuStarters">
+                </div>
+
+                <div id="salate" class="categories-img-container">
+                    <!--Bild der Kategorie Salate-->
+                    <img class="categories-img" src="./img/salad-img.jpg" alt="Bild von Salat">
+                </div>
+
+                <h3 class="categorie-name">Salate</h3>
+
+                <div id="menuSalads">
+                </div>
+
+                <div id="hauptgerichte" class="categories-img-container">
+                    <!--Bild der Kategorie Hauptgerichte-->
+                    <img class="categories-img" src="./img/hauptgerichte-img.jpg" alt="Bild von gegrilltem Fleisch">
+                </div>
+
+                <h3 class="categorie-name">Hauptgerichte</h3>
+
+                <div id="menuMainDishes">
+                </div>
+
+                <div id="nachtisch" class="categories-img-container">
+                    <!--Bild der Kategorie Nachtisch-->
+                    <img class="categories-img" src="./img/dessert-img.jpg" alt="Bild von  Nachtisch">
+                </div>
+
+                <h3 class="categorie-name">Nachtisch</h3>
+
+                <div id="menuDesserts">
+                </div>
+
+                <div id="getränke" class="categories-img-container">
+                    <!--Bild der Kategorie Getränke-->
+                    <img class="categories-img" src="./img/getränke-img.jpg" alt="Bild von  Getränken">
+                </div>
+
+                <h3 class="categorie-name">Getränke</h3>
+
+                <div id="menuDrinks">
+                </div>
+            </section>
+            <!--Menü-Übersicht-End-->
+            <div id="btn-main-menu" class="btn-main-menu"></div>
+        </div>
+        <!--left side-end-->
+
+        <div id="right" class="right opacity">
+            <!--right side-start-->
+            <aside id="shopping-bag-container" class="shopping-bag opacity">
+                <div class="bag-and-cancel">
+                    <h2>Warenkorb</h2>
+                    <img id="img-cancel" onclick="closeBagMain()" class="cancel d-none" src="./img/icons/cancel.png" alt="X zum Schließen des Warenkorbes">
+                </div>
+                <div id="shoppingBag" class="empty-basket-container">
+                    <img class="shopping-bag-icon" src="./img/icons/shopping-bag.png" alt="Shopping Bag Icon">
+                    <span><b>Fülle deinen Warenkorb</b><br>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</span>
+                </div>
+                <div id="sum-container"></div>
+            </aside>
+        </div>
+        <!--right side-end-->
+
+    </div>
+    <!--main container-end-->
+
+</body>
+
+<!-- <footer>
+    <a href="https://de.freepik.com/fotos-kostenlos/draufsicht-fast-food-mix-gegrilltes-lammfleisch-gurke-tomate-pommes-frites-rucola-salat-mit-lachs-und-parmesan-kaese-gegrillte-huehnerbrust-mit-frischem-gruen-brot-bas_8056436.htm#query=essen%20von%20oben&position=14&from_view=search&track=ais">Bild von stockking</a> auf Freepik
+    <a href="https://de.freepik.com/icon/einkaufstasche_5726525#fromView=search&term=bag&page=1&position=8&track=ais&track=ais">Icon von Iconpro86</a>
+    <a href="https://de.freepik.com/icon/fahrrad_685767">Icon von Good Ware</a>
+    <a href="https://www.flaticon.com/de/kostenlose-icons/abendessen" title="abendessen Icons">Abendessen Icons erstellt von Pause08 - Flaticon</a>
+    <a href="https://www.flaticon.com/free-icons/minus" title="minus icons">Minus icons created by Freepik - Flaticon</a>
+</footer> -->
+
+</html>
