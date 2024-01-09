@@ -101,7 +101,7 @@ function reloadNewAmount(index) {   // Aktualisierung von amount Wert des neuen 
     orderAmountArray.splice(OrderNameIndexOf, 1, amountValue);
     renderBasket();
 }
-
+0
 
 // <<<<====== orderAmountArray.splice(OrderNameIndexOf, 1, amountValue); =====>>>>>>>>>
 

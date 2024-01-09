@@ -94,12 +94,9 @@ function renderBasket() {
         `;
     }
 }
-
 function reloadNewAmount(index) {  
     let amountValue = +document.getElementById("amountBasket" + index).value; 
-    let OrderNameIndexOf = getMenuIndex(menuArray[index]['name']);
+    let OrderNameIndexOf = getMenuIndex(menuArray[index]['name']); 
+    orderAmountArray.splice(OrderNameIndexOf, 1, amountValue);
     renderBasket();
 }
-
-
-

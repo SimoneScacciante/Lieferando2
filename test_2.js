@@ -1,4 +1,4 @@
-let menusArray = [
+let menuArray = [
     {
         'name': 'Hamburger',
         'recepte': ['Tomatensoße', 'Salami', 'Käse', 'Peperoni'],
@@ -26,22 +26,21 @@ function render() {
     let menuID = document.getElementById('menuID');
     menuID.innerHTML = '';
 
-    for (let i = 0; i < menusArray.length; i++) {
+    for (let i = 0; i < menuArray.length; i++) {
         menuLoad(i);
     }
 }
 
 function menuLoad(i) {
     let menuID = document.getElementById('menuID');
-    const element = menusArray[i]
+    const element = menuArray[i]
 
     menuID.innerHTML += /*html*/`
     <div>
         Name: ${element['name']} <br>
         Zutaten: ${element['recepte']} <br>
         Preis: ${element['price']} €  <br> 
-        Bestellung: 
-        <input id="amountID${i}" type="number" min="1" max ="10" value="1"><br> 
+        Bestellung: <input id="amountID${i}" type="number" min="1" max ="10" value="1"><br>
         <button onclick="addToBasket(${i})"> Kaufen </button> 
     <br> <br> <br>   
     </div> 
@@ -51,26 +50,26 @@ function menuLoad(i) {
 
 function addToBasket(index) {
     let amount = getAmountFromInput(index);
-    const menuArrayIndex = menusArray[index];
-    let OrderName = getMenuIndex(menuArrayIndex['name']);
+    let OrderNameIndexOf = getMenuIndex(menuArray[index]['name']);
 
-    if (OrderName == -1) {
+    if (OrderNameIndexOf == -1) {
         orderAmountArray.push(amount);
-        orderMenuArray.push(menuArrayIndex['name']);
-        const price = amount * menuArrayIndex['price']; // die Berechnung um auf Gesamtpreis zu kommen
-        orderPriceArray.push(price); // Berechnung Gesamtpreis in neuen Leeren Array Price einfügen
+        orderMenuArray.push(menuArray[index]['name']);
+        const price = amount * menuArray[index]['price'];
+        orderPriceArray.push(price);
+
     } else {
-        orderAmountArray[OrderName] += amount;  // [OrderName] einfügen da nicht wie im "if (...)" KLammer vordefiniert ist
-        orderPriceArray[OrderName] = orderAmountArray[OrderName] * menuArrayIndex['price'];
+        orderAmountArray[OrderNameIndexOf] += amount;
+        orderPriceArray[OrderNameIndexOf] = orderAmountArray[OrderNameIndexOf] * menuArray[index]['price'];
+
     }
     renderBasket();
 }
 
-
 function getMenuIndex(menu) {
     let indexOf = orderMenuArray.indexOf(menu);
     return indexOf;
-}    
+}
 
 function getAmountFromInput(input) {
     let amountValue = +document.getElementById("amountID" + input).value;
@@ -86,10 +85,43 @@ function renderBasket() {
         basket.innerHTML += /*html*/ `
        <div> 
             Gericht: ${orderMenuArray[k]}  <br>
-           Preis einzeln: ${orderPriceArray[k]}€ <br> 
-           Anzahl: ${orderAmountArray[k]} <br>  <!-- Anzahl wird übernommen-->     
-       </div> <br> <br>
+            Einzelpreis Fix: ${menuArray[k]['price']}€ <br>
+           Gesamtpreis "NUR IF FUNKTION": ${orderPriceArray[k]}€ <br> <!-- Funktioniert NUR in der IF-Funktion!!!--> 
+
+           Gesamtpreis TEST: ${orderAmountArray[k] * menuArray[k]['price']}€ <br>                                   
+           Gesamtanzahl: ${orderAmountArray[k]} <br>                                   
+        </div>
+
+        <div class="basketStyle">
+            <div class="button"> 
+                <img src="/img/down.png" onclick="downNewAmount(${k})"> 
+            </div>
+            
+             <div id="amountBasket${k}"> 
+                    ${orderAmountArray[k]} 
+             </div>
+
+            <div class="button">
+             <img src="/img/up.png" onclick="upNewAmount(${k})"> 
+            </div>
+        </div>
+        <br> <br>
         `;
+    }
+}
+
+
+function upNewAmount(index) {
+    let OrderNameIndexOf = getMenuIndex(orderMenuArray[index]);
+    orderAmountArray[OrderNameIndexOf] += 1; // Erhöhe die Menge um 1
+    renderBasket();
+}
+
+function downNewAmount(index) {
+    let OrderNameIndexOf = getMenuIndex(orderMenuArray[index]);
+    if (orderAmountArray[OrderNameIndexOf] > 1) { // wenn meine Zahl größer als 1 ist dann führe nächste Zeile also -1 aus
+        orderAmountArray[OrderNameIndexOf] -= 1; // wenn aber Zahl die Bedingung NICHT erfüllt, dann führe NIX aus (da keine Else definiert)
+        renderBasket();
     }
 }
 
