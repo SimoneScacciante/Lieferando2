@@ -86,9 +86,10 @@ function renderBasket() {
        <div class="border"> 
             Gericht: ${orderMenuArray[k]}  <br>
             Einzelpreis Fix: ${menuArray[k]['price']}€ <br>
-            Gesamtpreis: ${orderPriceArray[k]}€ <===funktioneirt nur bei IF-Funktion===> <br> <!-- Funktioniert NUR in der IF-Funktion!!!--> 
             <br>
-            Gesamtpreis: ${orderAmountArray[k] * menuArray[k]['price']}€ <br>                                   
+            Gesamtpreis: ${orderPriceArray[k]}€ <br>  
+            Gesamtpreis: ${orderAmountArray[k] * menuArray[k]['price']}€ <br>                       
+            <br>            
             Gesamtanzahl: ${orderAmountArray[k]} <br>                                   
         
 
@@ -115,6 +116,9 @@ function renderBasket() {
 function upNewAmount(index) {
     let OrderNameIndexOf = getMenuIndex(orderMenuArray[index]); // vom neuen Array der Index Name z.B neu eingefügten "Hamburger" = OrderNameIndexOf (wichtig für Position erkennung = setzt Index Position)
     orderAmountArray[OrderNameIndexOf] += 1; // Erhöhe die Menge um 1 bei jeden Klick am entsprechenden angewählten Namen z.B Hamburger
+    
+
+
     renderBasket();
 }
 
@@ -126,3 +130,5 @@ function downNewAmount(index) {
     }
 }
 
+// EINZELPREIS ab Aufgabe 11_Lieferando.js funktioniert nicht, wieso?
+// orderPriceArray // funktioniert gar nicht

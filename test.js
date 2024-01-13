@@ -88,28 +88,15 @@ function renderBasket() {
             Gericht: ${orderMenuArray[k]}  <br>
             Einzelpreis: ${menuArray[k]['price']}€ <br>
            Gesamtpreis: ${orderPriceArray[k]}€ <br> 
-           Anzahl: ${orderAmountArray[k]} <br>                                      
+           Anzahl: ${orderAmountArray[k]} <br>                                   
            <div class="button"><input id="amountBasket${k}" type="number" min="1" max ="10" value="${orderAmountArray[k]}"><br> <img onclick="reloadNewAmount(${k})" src="img/reload.png" > <img src="img/delete.png"></div>  
         </div> <br> <br>
         `;
     }
 }
-
-function reloadNewAmount(index) {   
+function reloadNewAmount(index) {  
     let amountValue = +document.getElementById("amountBasket" + index).value; 
     let OrderNameIndexOf = getMenuIndex(menuArray[index]['name']); 
     orderAmountArray.splice(OrderNameIndexOf, 1, amountValue);
     renderBasket();
 }
-
-
-
-// <<<<====== orderAmountArray.splice(OrderNameIndexOf, 1, amountValue); =====>>>>>>>>>
-
-// OrderNameIndexOf sagt uns, an welcher Position im orderAmountArray wir etwas ändern möchten.
-// Die 1 bedeutet, dass wir genau ein Element an dieser Position ersetzen möchten.
-// amountValue ist der neue Wert, den wir an dieser Stelle einsetzen möchten.
-// Zusammengefasst bedeutet dies, dass wir den Wert in orderAmountArray an der Position OrderNameIndexOf 
-// durch amountValue ersetzen, um die Bestellmenge für ein bestimmtes Gericht zu aktualisieren. 
-// Dies geschieht, wenn Sie die Menge im Eingabefeld ändern und auf das "reload"-Bild klicken.
-
