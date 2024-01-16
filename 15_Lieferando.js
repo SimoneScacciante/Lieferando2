@@ -8,19 +8,20 @@ let menuArray = [
     {
         'name': 'Carbonara',
         'recepte': ['Tomatensoße', 'Apfel'],
-        'price': 7.5,
+        'price': 15,
     },
 
     {
         'name': 'Pizza',
         'recepte': ['Kartoffel', 'Curry', 'Ketchup'],
-        'price': 15,
+        'price': 20,
     },
 ]
 
-let orderMenuArray = []
-let orderPriceArray = []
-let orderAmountArray = []
+let orderMenuArray = [];
+let orderPriceArrayTotal = [];
+let orderPriceArraySolo = [];
+let orderAmountArray = [];
 
 function render() {
     let menuID = document.getElementById('menuID');
@@ -40,7 +41,7 @@ function menuLoad(i) {
         Name: ${element['name']} <br>
         Zutaten: ${element['recepte']} <br>
         Preis: ${element['price']} €  <br> 
-        Bestellung: <input id="amountID${i}" type="number" min="1" max ="10" value="1"><br> <!-- ENTFERNE!!! -->
+        Bestellung: <input id="amountID${i}" type="number" min="1" max ="10" value="1"><br> <!-- im Project 15_lieferando.js entferne Input (veränderung am Value findet statt) -->
         <button onclick="addToBasket(${i})"> Kaufen </button> 
     <br> <br> <br>   
     </div> 
@@ -50,17 +51,18 @@ function menuLoad(i) {
 
 function addToBasket(index) {
     let amount = getAmountFromInput(index);
-    let OrderNameIndexOf = getMenuIndex(menuArray[index]['name']);
+    let IndexOfNameArray = getMenuIndex(menuArray[index]['name']);
 
-    if (OrderNameIndexOf == -1) {
+    if (IndexOfNameArray == -1) {
         orderAmountArray.push(amount);
         orderMenuArray.push(menuArray[index]['name']);
         const price = amount * menuArray[index]['price'];
-        orderPriceArray.push(price);
+        orderPriceArrayTotal.push(price);
+        orderPriceArraySolo.push(menuArray[index]['price']);
 
     } else {
-        orderAmountArray[OrderNameIndexOf] += amount;
-        orderPriceArray[OrderNameIndexOf] = orderAmountArray[OrderNameIndexOf] * menuArray[index]['price'];
+        orderAmountArray[IndexOfNameArray] += amount;
+        orderPriceArrayTotal[IndexOfNameArray] = orderAmountArray[IndexOfNameArray] * menuArray[index]['price'];
 
     }
     renderBasket();
@@ -80,50 +82,51 @@ function renderBasket() {
     let basket = document.getElementById('basket');
     basket.innerHTML = '';
 
-    for (let k = 0; k < orderMenuArray.length; k++) {
+    for (let indexBasket = 0; indexBasket < orderMenuArray.length; indexBasket++) {
 
         basket.innerHTML += /*html*/ `
        <div class="border"> 
-            Gericht: ${orderMenuArray[k]}  <br>
-            Einzelpreis Fix: ${menuArray[k]['price']}€ <br>
-            Gesamtpreis: ${orderPriceArray[k]}€ <===funktioneirt nur bei IF-Funktion===> <br> 
-            <br>
-            Gesamtpreis: ${orderAmountArray[k] * menuArray[k]['price']}€ <br>                                   
-            Gesamtanzahl: ${orderAmountArray[k]} <br>                                   
+            Gericht: ${orderMenuArray[indexBasket]}  <br>
         
+            Einzelpreis Fix: ${orderPriceArraySolo[indexBasket]}€ <br>
+            <br>
+            Gesamtpreis_1: ${orderPriceArraySolo[indexBasket] * orderAmountArray[indexBasket]}€ <br>   
+            Gesamtpreis_2: ${orderPriceArrayTotal[indexBasket]}€ <br>  
+                   
+            <br>            
+            Gesamtanzahl: ${orderAmountArray[indexBasket]} <br>                                   
 
             <div class="basketStyle">
                 <div class="button"> 
-                    <img src="/img/down.png" onclick="downNewAmount(${k})"> 
+                    <img src="./img/down.png" onclick="downNewAmount(${indexBasket})"> <!--"decrease" Funktion-->
                 </div>
             
-                <div id="amountBasket${k}"> 
-                    ${orderAmountArray[k]} 
+                <div id="amountBasket${indexBasket}"> 
+                    ${orderAmountArray[indexBasket]} 
                 </div>
 
                 <div class="button">
-                    <img src="/img/up.png" onclick="upNewAmount(${k})"> 
+                    <img src="./img/up.png" onclick="upNewAmount(${indexBasket})"> <!--"increase" Funktion-->
                 </div>
             </div>
         </div>
         <br> <br> <br>
-
-        Gesamtpreis Aller Gerichte: XX € ((<===Berechnung durchführen===>))
         `;
     }
 }
 
-
 function upNewAmount(index) {
-    let OrderNameIndexOf = getMenuIndex(orderMenuArray[index]); 
-    orderAmountArray[OrderNameIndexOf] += 1; 
+    let IndexOfNameArray = getMenuIndex(orderMenuArray[index]); 
+    orderAmountArray[IndexOfNameArray] += 1; // Für Gesamtpreis_1 Berechnung
+    orderPriceArrayTotal[IndexOfNameArray] =  orderPriceArraySolo[IndexOfNameArray] * orderAmountArray[IndexOfNameArray];  //Für Gesamtpreis_2 Berechnung
     renderBasket();
 }
 
 function downNewAmount(index) {
-    let OrderNameIndexOf = getMenuIndex(orderMenuArray[index]);
-    if (orderAmountArray[OrderNameIndexOf] > 1) { 
-        orderAmountArray[OrderNameIndexOf] -= 1;
+    let IndexOfNameArray = getMenuIndex(orderMenuArray[index]);
+    if (orderAmountArray[IndexOfNameArray] > 1) { 
+        orderAmountArray[IndexOfNameArray] -= 1; //Für Gesamtpreis_1 Berechnung
+        orderPriceArrayTotal[IndexOfNameArray] =  orderPriceArraySolo[IndexOfNameArray] * orderAmountArray[IndexOfNameArray]; //Für Gesamtpreis_2 Berechnung
         renderBasket();
     }
 }

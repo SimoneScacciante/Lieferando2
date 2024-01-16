@@ -112,5 +112,5 @@ function reloadNewAmount(index) {   // Aktualisierung von amount Wert des neuen 
 // durch amountValue ersetzen, um die Bestellmenge für ein bestimmtes Gericht zu aktualisieren. 
 // Dies geschieht, wenn Sie die Menge im Eingabefeld ändern und auf das "reload"-Bild klicken.
 
-
-
+// Fazit: Die reloadNewAmount(index) Funktion führt dazu das sobald du auf reload button klickst
+// deine eingegebene Input zahl im orderAmountArray erscheint bzw. ersetzt wird durch die erste zahl die beim ersten klick erschien  (amountID)
