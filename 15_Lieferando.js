@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 let menuArray = [
     {
         'name': 'Hamburger',
@@ -131,3 +132,5 @@ function downNewAmount(index) {
     }
 }
 
+=======
+>>>>>>> 03a5c4c944ff46e6acd288fe83995bdb6ec09500

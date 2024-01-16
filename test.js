@@ -85,6 +85,7 @@ function renderBasket() {
     for (let indexBasket = 0; indexBasket < orderMenuArray.length; indexBasket++) {
 
         basket.innerHTML += /*html*/ `
+<<<<<<< HEAD
        <div class="border"> 
             Gericht: ${orderMenuArray[indexBasket]}  <br>
         
@@ -131,3 +132,21 @@ function downNewAmount(index) {
     }
 }
 
+=======
+       <div> 
+            Gericht: ${orderMenuArray[k]}  <br>
+            Einzelpreis: ${menuArray[k]['price']}€ <br>
+           Gesamtpreis: ${orderPriceArray[k]}€ <br> 
+           Anzahl: ${orderAmountArray[k]} <br>                                   
+           <div class="button"><input id="amountBasket${k}" type="number" min="1" max ="10" value="${orderAmountArray[k]}"><br> <img onclick="reloadNewAmount(${k})" src="img/reload.png" > <img src="img/delete.png"></div>  
+        </div> <br> <br>
+        `;
+    }
+}
+function reloadNewAmount(index) {  
+    let amountValue = +document.getElementById("amountBasket" + index).value; 
+    let OrderNameIndexOf = getMenuIndex(menuArray[index]['name']); 
+    orderAmountArray.splice(OrderNameIndexOf, 1, amountValue);
+    renderBasket();
+}
+>>>>>>> 03a5c4c944ff46e6acd288fe83995bdb6ec09500

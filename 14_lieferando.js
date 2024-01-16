@@ -88,7 +88,11 @@ function renderBasket() {
             Einzelpreis Fix: ${menuArray[k]['price']}€ <br>
             <br>
             Gesamtpreis: ${orderPriceArray[k]}€ <br>  
+<<<<<<< HEAD
             Gesamtpreis: ${orderAmountArray[k] * menuArray[k]['price']}€ <br> <!-- Achtung: [k] stimmt nicht! siehe Debuger, wenn du Carbonara klickst bekommt es Index: 0 obwohl es 1 ist-->                 
+=======
+            Gesamtpreis: ${orderAmountArray[k] * menuArray[k]['price']}€ <br>                       
+>>>>>>> 03a5c4c944ff46e6acd288fe83995bdb6ec09500
             <br>            
             Gesamtanzahl: ${orderAmountArray[k]} <br>                                   
         
@@ -117,6 +121,11 @@ function upNewAmount(index) {
     let OrderNameIndexOf = getMenuIndex(orderMenuArray[index]); // vom neuen Array der Index Name z.B neu eingefügten "Hamburger" = OrderNameIndexOf (wichtig für Position erkennung = setzt Index Position)
     orderAmountArray[OrderNameIndexOf] += 1; // Erhöhe die Menge um 1 bei jeden Klick am entsprechenden angewählten Namen z.B Hamburger
     
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 03a5c4c944ff46e6acd288fe83995bdb6ec09500
     renderBasket();
 }
 
