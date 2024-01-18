@@ -20,7 +20,7 @@ let menuArray = [
 
 let orderMenuArray = [];
 let orderPriceArrayTotal = [];
-let orderPriceArraySolo = []; // Neues Array für Einzelpreis (für Berechnung nötig)
+let orderPriceArraySolo = [];
 let orderAmountArray = [];
 
 function render() {
@@ -41,7 +41,7 @@ function menuLoad(i) {
         Name: ${element['name']} <br>
         Zutaten: ${element['recepte']} <br>
         Preis: ${element['price']} €  <br> 
-        Bestellung: <input id="amountID${i}" type="number" min="1" max ="10" value="1"><br> <!-- im Project 15_lieferando.js entferne Input (veränderung am Value findet statt) -->
+        Bestellung: <input id="amountID${i}" type="number" min="1" max ="10" value="1"><br>
         <button onclick="addToBasket(${i})"> Kaufen </button> 
     <br> <br> <br>   
     </div> 
@@ -58,7 +58,7 @@ function addToBasket(index) {
         orderMenuArray.push(menuArray[index]['name']);
         const price = amount * menuArray[index]['price'];
         orderPriceArrayTotal.push(price);
-        orderPriceArraySolo.push(menuArray[index]['price']); // Neues Array wird hier definiert
+        orderPriceArraySolo.push(menuArray[index]['price']); 
 
     } else {
         orderAmountArray[IndexOfNameArray] += amount;
@@ -88,10 +88,9 @@ function renderBasket() {
        <div class="border"> 
             Gericht: ${orderMenuArray[indexBasket]}  <br>
         
-            Einzelpreis Fix: ${orderPriceArraySolo[indexBasket]}€ <br> <!-- Neues Array nun erscheint korrekter Einzelpreis-->
-            <br>
-            Gesamtpreis_1: ${orderPriceArraySolo[indexBasket] * orderAmountArray[indexBasket]}€ <br>   <!-- A.) Einzelpreis + Gesamt Amount = Total Preis -->
-            Gesamtpreis_2: ${orderPriceArrayTotal[indexBasket]}€ <br>  <br> <!-- B.)  anderer weg um Total Preis zu berechnen -->
+            Einzelpreis Fix: ${orderPriceArraySolo[indexBasket]}€ <br> <br>
+            Gesamtpreis_1: ${orderPriceArraySolo[indexBasket] * orderAmountArray[indexBasket]}€ <br>  
+            Gesamtpreis_2: ${orderPriceArrayTotal[indexBasket]}€ <br>  <br> 
 
             Lieferkosten: +5€ <br> //
                    
@@ -117,11 +116,10 @@ function renderBasket() {
     }
 }
 
-// Für up + downNewAmount Funktion gibt es zwei wege wie du es definieren kannst (führt zum gleichen Ziel)
 
 function upNewAmount(index) {
     let IndexOfNameArray = getMenuIndex(orderMenuArray[index]); 
-    orderAmountArray[IndexOfNameArray] += 1; //A.) Für Gesamtpreis_1 Berechnung das ist ein möglicher Weg 
+    orderAmountArray[IndexOfNameArray] += 1; 
     orderPriceArrayTotal[IndexOfNameArray] =  orderPriceArraySolo[IndexOfNameArray] * orderAmountArray[IndexOfNameArray];  //B.) Für Gesamtpreis_2 Berechnung, das ist zweiter möglicher Weg zu berechnen
     renderBasket();
 }
@@ -129,7 +127,7 @@ function upNewAmount(index) {
 function downNewAmount(index) {
     let IndexOfNameArray = getMenuIndex(orderMenuArray[index]);
     if (orderAmountArray[IndexOfNameArray] > 1) { 
-        orderAmountArray[IndexOfNameArray] -= 1; //A.) Für Gesamtpreis_1 Berechnung
+        orderAmountArray[IndexOfNameArray] -= 1; 
         orderPriceArrayTotal[IndexOfNameArray] =  orderPriceArraySolo[IndexOfNameArray] * orderAmountArray[IndexOfNameArray]; // B.) Für Gesamtpreis_2 Berechnung
         renderBasket();
     }
