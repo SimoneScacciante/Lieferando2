@@ -22,7 +22,10 @@ let orderMenuArray = [];
 let orderPriceArrayTotal = [];
 let orderPriceArraySolo = [];
 let orderAmountArray = [];
+<<<<<<< HEAD
 let deliverPrice = 5; // Nun kein Array mehr (keine Index Position mehr) da Klammer weg
+=======
+>>>>>>> 8e180ba51b1366951544009053bb8de9be23b07d
 
 function render() {
     let menuID = document.getElementById('menuID');
@@ -42,7 +45,11 @@ function menuLoad(i) {
         Name: ${element['name']} <br>
         Zutaten: ${element['recepte']} <br>
         Preis: ${element['price']} €  <br> 
+<<<<<<< HEAD
         Bestellung: <input id="amountID${i}" type="number" min="1" max ="10" value="1"><br>
+=======
+        Bestellung: <input id="amountID${i}" type="number" min="1" max ="10" value="1"><br> <!-- im Project 15_lieferando.js entferne Input (veränderung am Value findet statt) -->
+>>>>>>> 8e180ba51b1366951544009053bb8de9be23b07d
         <button onclick="addToBasket(${i})"> Kaufen </button> 
     <br> <br> <br>   
     </div> 
@@ -52,9 +59,15 @@ function menuLoad(i) {
 
 function addToBasket(index) {
     let amount = getAmountFromInput(index);
+<<<<<<< HEAD
     let getMenuIndexOf = getMenuIndex(menuArray[index]['name']);
 
     if (getMenuIndexOf == -1) {
+=======
+    let IndexOfNameArray = getMenuIndex(menuArray[index]['name']);
+
+    if (IndexOfNameArray == -1) {
+>>>>>>> 8e180ba51b1366951544009053bb8de9be23b07d
         orderAmountArray.push(amount);
         orderMenuArray.push(menuArray[index]['name']);
         const price = amount * menuArray[index]['price'];
@@ -62,8 +75,13 @@ function addToBasket(index) {
         orderPriceArraySolo.push(menuArray[index]['price']);
 
     } else {
+<<<<<<< HEAD
         orderAmountArray[getMenuIndexOf] += amount;
         orderPriceArrayTotal[getMenuIndexOf] = orderAmountArray[getMenuIndexOf] * menuArray[index]['price'];
+=======
+        orderAmountArray[IndexOfNameArray] += amount;
+        orderPriceArrayTotal[IndexOfNameArray] = orderAmountArray[IndexOfNameArray] * menuArray[index]['price'];
+>>>>>>> 8e180ba51b1366951544009053bb8de9be23b07d
 
     }
     document.getElementById("amountID" + index).value = 1;
@@ -105,6 +123,7 @@ function renderBasket() {
     for (let indexBasket = 0; indexBasket < orderMenuArray.length; indexBasket++) {
 
         basket.innerHTML += /*html*/ `
+<<<<<<< HEAD
        <div class="basketContainerStyle"> 
             Gericht: ${orderMenuArray[indexBasket]}  <br><br>
 
@@ -118,6 +137,19 @@ function renderBasket() {
             Gesamtpreis: ${deliverPrice + orderPriceArrayTotal[indexBasket]} € <br><br>
                                                   
             Gesamtanzahl: ${orderAmountArray[indexBasket]} <br> <br> <br>                                
+=======
+<<<<<<< HEAD
+       <div class="border"> 
+            Gericht: ${orderMenuArray[indexBasket]}  <br>
+        
+            Einzelpreis Fix: ${orderPriceArraySolo[indexBasket]}€ <br>
+            <br>
+            Gesamtpreis_1: ${orderPriceArraySolo[indexBasket] * orderAmountArray[indexBasket]}€ <br>   
+            Gesamtpreis_2: ${orderPriceArrayTotal[indexBasket]}€ <br>  
+                   
+            <br>            
+            Gesamtanzahl: ${orderAmountArray[indexBasket]} <br>                                   
+>>>>>>> 8e180ba51b1366951544009053bb8de9be23b07d
 
             <div class="basketStyle">
                 <div class="button"> 
@@ -134,6 +166,37 @@ function renderBasket() {
             </div>
         </div>
         <br> <br> <br>
+<<<<<<< HEAD
+=======
+        `;
+    }
+}
+
+function upNewAmount(index) {
+    let IndexOfNameArray = getMenuIndex(orderMenuArray[index]); 
+    orderAmountArray[IndexOfNameArray] += 1; // Für Gesamtpreis_1 Berechnung
+    orderPriceArrayTotal[IndexOfNameArray] =  orderPriceArraySolo[IndexOfNameArray] * orderAmountArray[IndexOfNameArray];  //Für Gesamtpreis_2 Berechnung
+    renderBasket();
+}
+
+function downNewAmount(index) {
+    let IndexOfNameArray = getMenuIndex(orderMenuArray[index]);
+    if (orderAmountArray[IndexOfNameArray] > 1) { 
+        orderAmountArray[IndexOfNameArray] -= 1; //Für Gesamtpreis_1 Berechnung
+        orderPriceArrayTotal[IndexOfNameArray] =  orderPriceArraySolo[IndexOfNameArray] * orderAmountArray[IndexOfNameArray]; //Für Gesamtpreis_2 Berechnung
+        renderBasket();
+    }
+}
+
+=======
+       <div> 
+            Gericht: ${orderMenuArray[k]}  <br>
+            Einzelpreis: ${menuArray[k]['price']}€ <br>
+           Gesamtpreis: ${orderPriceArray[k]}€ <br> 
+           Anzahl: ${orderAmountArray[k]} <br>                                   
+           <div class="button"><input id="amountBasket${k}" type="number" min="1" max ="10" value="${orderAmountArray[k]}"><br> <img onclick="reloadNewAmount(${k})" src="img/reload.png" > <img src="img/delete.png"></div>  
+        </div> <br> <br>
+>>>>>>> 8e180ba51b1366951544009053bb8de9be23b07d
         `;
     }
 }
@@ -145,6 +208,7 @@ function upNewAmount(index) {
     orderPriceArrayTotal[getMenuIndexOf] = orderPriceArraySolo[getMenuIndexOf] * orderAmountArray[getMenuIndexOf];
     renderBasket();
 }
+<<<<<<< HEAD
 
 function downNewAmount(index) {
     let getMenuIndexOf = getMenuIndex(orderMenuArray[index]);
@@ -156,3 +220,6 @@ function downNewAmount(index) {
 }
 
 // Aufgaben: Funktion Close /  Hinweis Mindest Bestellwert ist noch nicht erreicht
+=======
+>>>>>>> 03a5c4c944ff46e6acd288fe83995bdb6ec09500
+>>>>>>> 8e180ba51b1366951544009053bb8de9be23b07d
