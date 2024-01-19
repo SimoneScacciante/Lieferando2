@@ -87,30 +87,15 @@ function renderBasket() {
             Gericht: ${orderMenuArray[indexBasket]}  <br>
             Einzelpreis Fix: ${menuArray[indexBasket]['price']}€ <br>
             <br>
-<<<<<<< HEAD
             Gesamtpreis: ${orderPriceArray[indexBasket]}€ <br>  
             Gesamtpreis: ${orderAmountArray[indexBasket] * menuArray[indexBasket]['price']}€ <br> <!-- Achtung: hier wird falscher Index vergeben! Siehe Debuger -->                 
             <br>                                                                                <!-- Aufgabe 15_Lieferando.js ist Aufgabe richtig gelöst-->
             Gesamtanzahl: ${orderAmountArray[indexBasket]} <br>                                   
-=======
-            Gesamtpreis: ${orderPriceArray[k]}€ <br>  
-<<<<<<< HEAD
-            Gesamtpreis: ${orderAmountArray[k] * menuArray[k]['price']}€ <br> <!-- Achtung: [k] stimmt nicht! siehe Debuger, wenn du Carbonara klickst bekommt es Index: 0 obwohl es 1 ist-->                 
-=======
-            Gesamtpreis: ${orderAmountArray[k] * menuArray[k]['price']}€ <br>                       
->>>>>>> 03a5c4c944ff46e6acd288fe83995bdb6ec09500
-            <br>            
-            Gesamtanzahl: ${orderAmountArray[k]} <br>                                   
->>>>>>> 8e180ba51b1366951544009053bb8de9be23b07d
         
 
             <div class="basketStyle">
                 <div class="button"> 
-<<<<<<< HEAD
                     <img src="./img/down.png" onclick="downNewAmount(${indexBasket})"> <!--"decrease" Funktion-->
-=======
-                    <img src="./img/down.png" onclick="downNewAmount(${k})"> <!--"decrease" Funktion-->
->>>>>>> 8e180ba51b1366951544009053bb8de9be23b07d
                 </div>
             
                 <div id="amountBasket${indexBasket}"> 
@@ -118,11 +103,7 @@ function renderBasket() {
                 </div>
 
                 <div class="button">
-<<<<<<< HEAD
                     <img src="./img/up.png" onclick="upNewAmount(${indexBasket})"> <!--"increase" Funktion-->
-=======
-                    <img src="./img/up.png" onclick="upNewAmount(${k})"> <!--"increase" Funktion-->
->>>>>>> 8e180ba51b1366951544009053bb8de9be23b07d
                 </div>
             </div>
         </div>
@@ -136,14 +117,6 @@ function upNewAmount(index) {
     let OrderNameIndexOf = getMenuIndex(orderMenuArray[index]); // vom neuen Array der Index Name z.B neu eingefügten "Hamburger" = OrderNameIndexOf (wichtig für Position erkennung = setzt Index Position)
     orderAmountArray[OrderNameIndexOf] += 1; // Erhöhe die Menge um 1 bei jeden Klick am entsprechenden angewählten Namen z.B Hamburger
     
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 03a5c4c944ff46e6acd288fe83995bdb6ec09500
->>>>>>> 8e180ba51b1366951544009053bb8de9be23b07d
     renderBasket();
 }
 
