@@ -11,26 +11,49 @@
 
 
     <style>
-        .basketStyle {
-            display: flex;
-        }
 
+    
         .button {
             display: flex;
             width: 35px;
             column-gap: 20px;
         }
-
+    
         img {
-            width: 100px;
+            width: 30px;
             cursor: pointer;
         }
 
-        .border {
+        .basketContainer {
+            display: flex;
+            column-gap: 20px;
+        }
+    
+        .basketContainerStyle {
             border: solid 5px;
-            width: 500px;
+            width: 200px;
+        }
+
+        .basketStyle {
+        }
+    
+        .billContainerStyle {
+            border: solid red 5px;
+            padding: 50px;
+            width: 400px;
+        }
+    
+        .billOrderStyle {
+            border: solid rgba(142, 151, 144, 0.767) 5px;
+            padding: 30px;
+        }
+    
+        .billOptionsStyle {
+            border: solid rgba(142, 151, 144, 0.767) 5px;
+            padding: 30px;
         }
     </style>
+    
 
 </head>
 
@@ -43,11 +66,9 @@
 
         <div id="menuID"></div>
 
-        <div id="basket"></div>
+        <div id="basket" class="basketContainer"></div> <br> <br>
 
-        <div id="TestID_1"> </div>
-
-        <div id="basket_2"></div>
+        <div id="billID"> </div>
 
 
     </div>

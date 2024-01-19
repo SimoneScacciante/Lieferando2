@@ -22,7 +22,7 @@ let orderMenuArray = [];
 let orderPriceArrayTotal = [];
 let orderPriceArraySolo = [];
 let orderAmountArray = [];
-let deliverPrice = [5]; // FEHLER: Deine Fixe Zahl sollte kein Array sein! nun hat es Index position 0 das führt unten zu probleme 
+let deliverPrice = 5; // Nun kein Array mehr (keine Index Position mehr) da Klammer weg
 
 function render() {
     let menuID = document.getElementById('menuID');
@@ -52,9 +52,9 @@ function menuLoad(i) {
 
 function addToBasket(index) {
     let amount = getAmountFromInput(index);
-    let IndexOfNameArray = getMenuIndex(menuArray[index]['name']);
+    let getMenuIndexOf = getMenuIndex(menuArray[index]['name']);
 
-    if (IndexOfNameArray == -1) {
+    if (getMenuIndexOf == -1) {
         orderAmountArray.push(amount);
         orderMenuArray.push(menuArray[index]['name']);
         const price = amount * menuArray[index]['price'];
@@ -62,11 +62,11 @@ function addToBasket(index) {
         orderPriceArraySolo.push(menuArray[index]['price']);
 
     } else {
-        orderAmountArray[IndexOfNameArray] += amount;
-        orderPriceArrayTotal[IndexOfNameArray] = orderAmountArray[IndexOfNameArray] * menuArray[index]['price'];
+        orderAmountArray[getMenuIndexOf] += amount;
+        orderPriceArrayTotal[getMenuIndexOf] = orderAmountArray[getMenuIndexOf] * menuArray[index]['price'];
 
     }
-    document.getElementById("amountID" + index).value = 1; // setzt dein input wieder auf 0
+    document.getElementById("amountID" + index).value = 1; 
     renderBasket();
 }
 
@@ -95,10 +95,10 @@ function renderBasket() {
             Zwischenpreis_1: ${orderPriceArraySolo[indexBasket] * orderAmountArray[indexBasket]}€ <br>  
             Zwischenpreis_2: ${orderPriceArrayTotal[indexBasket]}€ <br>  <br> 
 
-            Lieferkosten: ${deliverPrice[indexBasket]} € <br><br> <!-- du hast indexBasket++ definiert, somit sobald du zwei Gerichte anwählst geht es nicht da deliverPrice[indexBasket] (aldo das deliverPrice Array) nur die Index 0 definiert hat  -->
+            Lieferkosten: ${deliverPrice} € <br><br> <!-- habe indexBasket entfernt, nun keine Indexinierung mehr, Programm läuft -->
 
-            Gesamtpreis: ${deliverPrice[indexBasket] + orderPriceArrayTotal[indexBasket]} € <br><br> <!-- Gesamtpreis berechnung Deliverpreis von 5 immer + entsprechender Total Wert = Zwischenwert + Lieferwert = Gesamtpreis-->
-                                                    <!-- Bei Zeile 100 erscheint NaN als Fehler Meldung, das heißt number is not defined, da er delivePrice nicht erkennnt + orderPriceArrayTotal (hier erkennt Zahl) sein Fazit: NaN -->
+            Gesamtpreis: ${deliverPrice + orderPriceArrayTotal[indexBasket]} € <br><br>
+                                                  
             Gesamtanzahl: ${orderAmountArray[indexBasket]} <br> <br> <br>                                
 
             <div class="basketStyle">
@@ -122,17 +122,17 @@ function renderBasket() {
 
 
 function upNewAmount(index) {
-    let IndexOfNameArray = getMenuIndex(orderMenuArray[index]);
-    orderAmountArray[IndexOfNameArray] += 1;
-    orderPriceArrayTotal[IndexOfNameArray] = orderPriceArraySolo[IndexOfNameArray] * orderAmountArray[IndexOfNameArray];  
+    let getMenuIndexOf = getMenuIndex(orderMenuArray[index]);
+    orderAmountArray[getMenuIndexOf] += 1;
+    orderPriceArrayTotal[getMenuIndexOf] = orderPriceArraySolo[getMenuIndexOf] * orderAmountArray[getMenuIndexOf]; 
     renderBasket();
 }
 
 function downNewAmount(index) {
-    let IndexOfNameArray = getMenuIndex(orderMenuArray[index]);
-    if (orderAmountArray[IndexOfNameArray] > 1) {
-        orderAmountArray[IndexOfNameArray] -= 1;
-        orderPriceArrayTotal[IndexOfNameArray] = orderPriceArraySolo[IndexOfNameArray] * orderAmountArray[IndexOfNameArray];
+    let getMenuIndexOf = getMenuIndex(orderMenuArray[index]);
+    if (orderAmountArray[getMenuIndexOf] > 1) {
+        orderAmountArray[getMenuIndexOf] -= 1;
+        orderPriceArrayTotal[getMenuIndexOf] = orderPriceArraySolo[getMenuIndexOf] * orderAmountArray[getMenuIndexOf]; 
         renderBasket();
     }
 }
