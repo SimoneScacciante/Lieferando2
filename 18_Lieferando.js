@@ -68,15 +68,6 @@ function addToBasket(index) {
     document.getElementById("amountID" + index).value = 1;
     renderBasket();
     foodBill();
-    payOrder();
-}
-
-function payOrder(index) {
-
-    if(orderPriceArrayTotal > 50) {
-        document.getElementById('billTestID').innerHTML = /*html*/ `
-        <div> BEZAHLEN </div>`;
-    }
 }
 
 function foodBill() {
@@ -84,7 +75,7 @@ function foodBill() {
 
     bill.innerHTML = /*html*/ `
     <div class="billContainerStyle"> 
-        <div class="billOrderStyle" id="billTestID"> 
+        <div class="billOrderStyle"> 
              Mindest-Bestellwert ist noch nicht erreicht 
         </div> <br>
         <div class="billOptionsStyle">  
@@ -114,7 +105,7 @@ function renderBasket() {
 
         basket.innerHTML += /*html*/ `
        <div class="basketContainerStyle"> 
-            Gericht: ${orderMenuArray[indexBasket]}  <img onclick="removeFromBasket(${indexBasket})" src="./img/close.png" class="cursor" >
+            Gericht: ${orderMenuArray[indexBasket]}  <img onclick="removeFromBasket(${indexBasket})" src="./img/close.png" class="cursor" > <!-- removeFromBasket Funktion hinzugefügt-->
             <br><br>
 
             Einzelpreis Fix: ${orderPriceArraySolo[indexBasket]}€ <br><br>
@@ -164,13 +155,10 @@ function downNewAmount(index) {
 }
 
 function removeFromBasket(index) { 
-    orderAmountArray.splice(index, 1);
-    orderMenuArray.splice(index, 1); 
-    orderPriceArrayTotal.splice(index, 1); 
+    orderAmountArray.splice(index, 1); //Erinnerung wenn z.B steht ...splice(1,2) dann heißt die 1 = Position wo was entfernt wird z.B könnte stattdessen index stehen.. und die zahl 2 die anzahl der Elemente indemfall zwei Stück (zwei Elemente)
+    orderMenuArray.splice(index, 1); // Du entfernst somit alle Index Positionen die du zuvor vergeben hast durch das klicken bei "kaufen"
+    orderPriceArrayTotal.splice(index, 1); // kein Array mit Index Position = kein Array was erscheinen könnte = Basket verschwindet!
     orderPriceArraySolo.splice(index, 1);
     renderBasket();
 }
 
-
-
-// Aufgaben:  Hinweis Mindest Bestellwert ist noch nicht erreicht / Localstorage vergeben

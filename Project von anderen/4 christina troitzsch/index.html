@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bringindo</title>
+    <link rel="icon" href="favicon_96.ico" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="script.js"></script>
+</head>
+
+<body onload="loadPartnerInfos()">
+    <header id="logoSection">
+        <div class="logo">
+            <img src="img/svg/logo_Bringindo_orange_ohneRahmen.svg" class="logoIMG" />
+            <h1>Bringindo</h1>
+        </div>
+    </header>
+    <aside id="cart" class="cart">
+        <div id="arrowBox" class="cartchange opacity" onclick="toggleArrows()">
+            <img id="arrowIMG" src="./img/arrow.png" class="rotateArrowDown" />
+        </div>
+        <h2 class="textCenter">FOOD BILL</h2>
+        <img src="./img/svg/empty.svg" class="cart" />
+        <div id="collapsible">
+            <div id="orderList">
+                <div id="emptyPhrase" class="textCenter">Dein Speisezettel ist noch leer.</div>
+            </div>
+        </div>
+        <div id="totalCosts" class="textCenter"></div>
+        <div id="button"></div>
+        <div id="discountDescription"></div>
+    </aside>
+    <section>
+        <div id="topSection"></div>
+
+        <div id="partnerInfo"></div>
+
+        <div id="nav"></div>
+    </section>
+    <section id="catPopular"></section>
+
+    <section id="menuSection"></section>
+</body>
+
+</html>

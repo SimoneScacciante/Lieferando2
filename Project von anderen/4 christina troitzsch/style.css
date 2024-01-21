@@ -1,0 +1,499 @@
+@font-face {
+    font-family: "dosis regular";
+    src: url("./font/dosis-variablefont_wght-webfont.woff2") format("woff2");
+}
+
+body {
+    margin: 0;
+    position: relative;
+    font-family: "dosis regular";
+    background-color: rgb(255, 253, 248);
+}
+
+h1 {
+    margin: auto;
+    font-size: 25px;
+    color: rgba(235, 166, 0, 1);
+}
+
+h2 {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    margin: 15px 0 0 1px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h4 {
+    margin: 16px 0 10px 0;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+#logoSection {
+    height: 70px;
+    box-shadow: 0px 4px 10px rgba(100, 100, 100, 0.2);
+    display: flex;
+    justify-content: start;
+    padding: 0 30px 0 30px;
+    z-index: 100;
+    position: relative;
+    background-color: white;
+}
+
+.logo {
+    display: flex;
+    place-content: center center;
+    gap: 5px;
+}
+
+.logoIMG {
+    width: 35px;
+}
+
+p.dishDescription {
+    margin: 0 0 22px 0;
+}
+
+#topSection {
+    background-image: url("./img/topmoodimg.jpg");
+    height: 350px;
+    width: -1;
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+}
+
+.partnerLogoIMG {
+    position: absolute;
+    top: 350px;
+    left: 15%;
+    height: 80px;
+    width: 80px;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    background-color: white;
+}
+
+#partnerInfo {
+    margin: 0;
+    top: 300px;
+    padding: 0 330px 30px 15%;
+    background-color: white;
+    border-top: 1px solid rgba(100, 100, 100, 0.2);
+}
+
+#nav {
+    padding: 0 15% 0 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    background-color: antiquewhite;
+}
+
+#menuSection {
+    margin-right: 330px;
+    display: flex;
+    flex-direction: column;
+    place-content: center start;
+    padding: 0 20px 0 15%;
+}
+
+#categories {
+    height: 40px;
+    background: white;
+}
+
+#relative {
+    position: relative;
+    gap: 0;
+    height: 16px;
+    width: 80px;
+}
+
+#stars {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    z-index: 20;
+    height: 16px;
+    width: 16.625px;
+}
+
+.rate {
+    padding: 2px 0 0 10px;
+}
+
+.absolut {
+    position: absolute;
+}
+
+#yello {
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 204, 0);
+    height: 16px;
+}
+
+.displayNone {
+    display: none;
+}
+
+.navItems {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+}
+
+.navItems:hover {
+    background-color: rgba(245, 244, 244, 0.8);
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    place-content: center start;
+    margin: 10px 15% 0 15%;
+    border: 0.5px solid darkgray;
+    opacity: 0.8;
+    border-radius: 15px;
+    height: 200px;
+    width: -1;
+}
+
+.dishItem {
+    max-width: 1000px;
+    position: relative;
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    background-color: white;
+    padding: 0 10px 0 20px;
+    margin-top: 15px;
+}
+
+.dishHover:hover {
+    background-color: rgb(245, 249, 253);
+    cursor: pointer;
+}
+
+.mood {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 140px;
+}
+
+.addICON {
+    display: flex;
+    position: absolute;
+    height: 15px;
+    aspect-ratio: 1;
+    background-color: rgba(245, 249, 253, 1);
+    background-image: url(./img/svg/plus.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    top: 10px;
+    right: 10px;
+    border: 4px solid rgba(245, 249, 253, 1);
+    border-radius: 6px;
+}
+
+aside {
+    position: fixed;
+    z-index: 30;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgb(255, 179, 0);
+    box-shadow: 0 4px 6px rgba(100, 100, 100, 0.5);
+    width: 300px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    scroll-snap-align: start;
+}
+
+aside::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari and Opera */
+}
+
+#cart {
+    padding: 15vh 10px 100px 10px;
+    display: flex;
+    flex-direction: column;
+    place-content: center start;
+    text-align: center;
+}
+
+img.cart {
+    height: 20px;
+    margin: 10px 0 30px 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.billline {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-top: 6px;
+    font-size: 18px;
+}
+
+.dishAmount {
+    text-align: right;
+    width: 26px;
+    padding-right: 2px;
+}
+
+.dishNameOnCart {
+    text-align: left;
+    min-width: 150px;
+}
+
+.dishPriceOnCart {
+    text-align: right;
+}
+
+.discount {
+    border: 1px solid black;
+    border-radius: 16px;
+    background-color: goldenrod;
+    color: black;
+    font-size: 16px;
+    text-align: left;
+    margin: 10px 0 0 0;
+}
+
+li {
+    margin-top: 6px;
+}
+
+.discountline {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: rgba(16, 15, 15, 0.9);
+}
+
+.payButton {
+    background-color: black;
+    color: bisque;
+    border: 1px solid gray;
+    border-radius: 16px;
+    width: 250px;
+    height: 40px;
+    margin: 20px 0 10px 0;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#payTotal {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.inactiveButton {
+    background-color: gray;
+    border: 1px solid black;
+    cursor: unset;
+}
+
+#addCosts {
+    background-color: chocolate;
+    width: 250px;
+    height: 40px;
+    margin: 10px auto;
+    display: flex;
+    position: fixed;
+    bottom: 30px;
+    right: 35px;
+}
+
+#totalCosts {
+    margin-top: 5px;
+    border-top: 2px dotted gray;
+    font-size: 26px;
+}
+
+.icon {
+    height: 18px;
+    border: 1px solid black;
+    opacity: 0.6;
+    border-radius: 50%;
+    margin-left: 3px;
+}
+
+.icon:hover {
+    opacity: 1;
+    background-color: rgba(230, 240, 250, 0.8);
+    cursor: pointer;
+}
+
+#moreless {
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    margin-left: 3px;
+}
+
+.moreless:hover {
+    background-color: rgba(230, 240, 250, 0.8);
+    cursor: pointer;
+}
+
+.moreless {
+    width: 20px;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+.inactive {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.correct {
+    height: 14px;
+}
+
+.displayNone {
+    display: none;
+}
+
+@media (max-height: 781px) {
+    #cart {
+        padding: 100px 10px 50px 10px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #nav {
+        gap: 15px;
+    }
+    .navItems {
+        padding: 10px 0px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    #nav,
+    #menuSection {
+        padding: 0 20px 0 20px;
+    }
+    #partnerInfo {
+        padding-left: 20px;
+    }
+    .partnerLogoIMG {
+        left: 20px;
+    }
+    @media only screen and (max-height: 781px) {
+        #cart {
+            padding: 100px 10px 50px 10px;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #partnerInfo {
+        padding: 20px;
+    }
+    .discountline,
+    .billline {
+        padding: 6px 10%;
+        align-items: center;
+    }
+    .moreless {
+        width: 30px;
+    }
+    #moreless {
+        gap: 10px;
+    }
+    .icon {
+        height: 28px;
+    }
+    aside {
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        left: 0;
+        top: unset;
+        width: unset;
+    }
+    #cart {
+        padding: 10px;
+    }
+    #nav {
+        justify-content: center;
+    }
+    #menuSection {
+        margin-right: unset;
+        padding: 20px 20px 250px 20px;
+    }
+    .cartchange {
+        width: 100%;
+        display: flex;
+        justify-content: right;
+        height: 15px;
+        cursor: pointer;
+    }
+    #arrowIMG {
+        margin-right: 30px;
+    }
+    .rotateArrowDown {
+        width: 20px;
+        transition: 1s transform ease-in;
+        transform: rotate(180deg);
+    }
+    .rotateArrowUp {
+        width: 20px;
+        transition: 1s transform ease-in;
+        transform: rotate(360deg);
+    }
+    .opacity {
+        opacity: 0.6;
+    }
+    .opacity:hover {
+        opacity: 1;
+    }
+    @media only screen and (max-height: 781px) {
+        #cart {
+            padding: 10px 10px 20px 10px;
+        }
+        #menuSection {
+            margin-bottom: 250px;
+        }
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .discountline,
+    .billline {
+        padding: 2px 0;
+    }
+    #menuSection {
+        margin: unset;
+    }
+    .navItems {
+        padding: 10px;
+    }
+    .dishNameOnCart {
+        min-width: 120px;
+    }
+}
