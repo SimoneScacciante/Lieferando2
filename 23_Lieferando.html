@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lieferando</title>
+
+    <script src="23_Lieferando.js"></script>
+
+
+    <style>
+        .button {
+            display: flex;
+            width: 35px;
+            column-gap: 20px;
+        }
+
+        .cursor {
+            cursor: pointer;
+        }
+
+        .basketContainer {
+            display: flex;
+            column-gap: 20px;
+        }
+
+        .basketContainerStyle {
+            border: solid 5px;
+            width: 150px;
+        }
+
+        .basketStyle {
+            padding-left: 40px;
+        }
+
+        .basketNoticeContainer {
+            border: solid red 5px;
+            padding: 50px;
+            width: 400px;
+        }
+
+        .payOrderStyle {
+            border: solid rgba(142, 151, 144, 0.767) 5px;
+            padding: 30px;
+        }
+
+        .payOrderStyleNotice {
+            border: solid rgba(142, 151, 144, 0.767) 5px;
+            padding: 30px;
+        }
+    </style>
+
+
+</head>
+
+<body onload="render()">
+    <header>
+        <h1>Bella Pizza!</h1>
+    </header>
+
+    <div>
+        <div id="menuID"></div>
+
+        <div id="basket" class="basketContainer"></div> <br> <br>
+
+
+
+
+        <div id="basketNoticeDeleteID">
+            <div id="basketBillID"> </div>
+            <div id="basketNoticeID"> </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
