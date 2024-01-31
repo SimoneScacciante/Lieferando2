@@ -1,39 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="1_Lieferando.js"> </script>
+    <title>Bella Pizza!</title>
 
-    <style>
-        .buttonBurger {
-            height: 100px;
-        }
-    </style>
+    <script src="1_Lieferando.js"></script>
+    <link rel="stylesheet" href="1_Lieferando.css">
+
 </head>
 
-<body>
+<body onload="render()">
+    <header>
+        <h1>Bella Pizza!</h1>
+    </header>
+
     <div>
-        <button class="buttonBurger" onclick="food(0)"> Cheeseburger</button>
-        <div>10 €</div>
-        <br> <br>
-        <button class="buttonBurger" onclick="food(1)"> Pommes</button>
-        <div> 5 € </div>
-        <br> <br>
-        <button class="buttonBurger" onclick="food(2)"> Carbonara</button>
-        <div> 30 € </div>
+        <div id="menuID"></div>
+
+        <div id="basket" class="basketContainer"></div> <br> <br>
+
+        <div id="basketNoticeDeleteID">
+            <div id="basketBillID"> </div>
+            <div id="basketNoticeID"> </div>
+        </div>
+
+
+        <div id="test"> </div>
 
     </div>
 
-    <br><br><br><br>
-    <div>
-        <h1>Warenkorb:</h1>
-    </div>
 
-    <div id="warenkorbID">
-    </div>
 
 </body>
 
