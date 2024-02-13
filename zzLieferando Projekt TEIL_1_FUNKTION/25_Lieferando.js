@@ -43,11 +43,15 @@ function menuLoad(i) {
         Zutaten: ${element['recepte']} <br>
         Preis: ${element['price']} €  <br> 
         Bestellung: <input id="amountID${i}" type="number" min="1" max ="10" value="1"><br>
-        <button onclick="removeFromBasket_2(${i})"> Verkaufen </button> 
-        <button onclick="addToBasket(${i})"> Kaufen </button> 
-        <br> <br> <br>   
+        <img class="cursor" src="./img/minus.png" onclick="reduceAmount(${i})">  <!-- schreibe statt reduceAmmount direkt hier downNewAmount(${i}) -->
+        <img class="cursor" src="./img/plus.png" onclick="addToBasket(${i})"> <!-- du siehst dsa Index bei Elements nicht richtig vergeben wird -->
+        <br> <br> <br>                                                  <!-- wenn du z.B nur einmal Pizza anwählst dann mus Minus Symbol Index: 0 besitzen und NICHT 2 -->
     </div> 
-`
+`}
+
+function reduceAmount(i) {
+    let index = orderMenuArray.indexOf(menuArray[i].name); // nimm mir die IndexOf = menuArray[i] im Abschnitt name
+    downNewAmount(index); //  somit bekommen bei Auswahl "Hamburger, Carbonara, Pizza" eine Index Positionierung
 }
 
 function getMenuIndex(menu) {
@@ -59,7 +63,6 @@ function getAmountFromInput(input) {
     let amountValue = +document.getElementById("amountID" + input).value;
     return amountValue;
 }
-
 
 function addToBasket(index) {
     let amount = getAmountFromInput(index);
@@ -84,28 +87,6 @@ function addToBasket(index) {
     showBasketNotice();
 }
 
-function removeFromBasket_2(index) {
-    let getMenuIndexOf = getMenuIndex(menuArray[index]['name']);
-
-    if (getMenuIndexOf >= 0) {
-        let amount = orderAmountArray[getMenuIndexOf];
-        if (amount > 1) {
-            orderAmountArray[getMenuIndexOf] -= 1;
-            orderPriceArrayTotal[getMenuIndexOf] = orderPriceArraySolo[getMenuIndexOf] * orderAmountArray[getMenuIndexOf]; // Aktualisieren Sie den Gesamtpreis für dieses Element
-        } else {
-            removeFromBasket(index);
-        }
-
-        renderBasket(); // Aktualisieren Sie den Warenkorb
-        showBasketBill(); // Aktualisieren Sie die Rechnung
-        showBasketNotice(); // Aktualisieren Sie die Hinweise
-    }
-}
-
-
-
-
-
 function renderBasket() {
     let basket = document.getElementById('basket');
     basket.innerHTML = '';
@@ -115,7 +96,7 @@ function renderBasket() {
         basket.innerHTML += /*html*/ `
             <div> 
                 <div class="basketContainerStyle"> 
-                 Gericht: ${orderMenuArray[indexBasket]}  <img onclick="removeFromBasket(${indexBasket})" src="./img/close.png" class="cursor" ><br><br>
+                 Gericht: ${orderMenuArray[indexBasket]}  <img onclick="closeBasket(${indexBasket})" src="./img/close.png" class="cursor" ><br><br>
                  Zwischenpreis: ${orderPriceArrayTotal[indexBasket]} € <br>  <br>                    
                  Gesamtanzahl: ${orderAmountArray[indexBasket]} <br> <br>                                 
 
@@ -190,8 +171,6 @@ function calculateBasketNotice(index) {
     }
 }
 
-
-
 function upNewAmount(index) {
     let getMenuIndexOf = getMenuIndex(orderMenuArray[index]);
     orderAmountArray[getMenuIndexOf] += 1;
@@ -210,12 +189,12 @@ function downNewAmount(index) {
         showBasketBill();
         showBasketNotice();
     } else {
-        removeFromBasket(index)
+        closeBasket(index)
     }
 
 }
 
-function removeFromBasket(index) {
+function closeBasket(index) {
     let getMenuIndexOf = getMenuIndex(orderMenuArray[index]);
 
     if (getMenuIndexOf !== -1) {
@@ -223,17 +202,21 @@ function removeFromBasket(index) {
         orderMenuArray.splice(getMenuIndexOf, 1);
         orderPriceArrayTotal.splice(getMenuIndexOf, 1);
         orderPriceArraySolo.splice(getMenuIndexOf, 1);
-
         renderBasket();
         showBasketBill();
     }
 
-    if (orderAmountArray.length === 0) { // damit sagst du wenn dein Array Leer ist, könntest auch sagen "orderAmountArray < 1" führt zum selben
+    if (orderAmountArray.length === 0) {
         let basketNoticeDeleteID = document.getElementById('basketNoticeDeleteID');
         basketNoticeDeleteID.innerHTML = `
         <div id="basketBillID"> </div>
         <div id="basketNoticeID"> </div>
-        `
-            ;
+        `;
     }
 }
+
+// Prolem/Gelöst:
+// bei Zeile 46 = stand statt Funktion "reduceAmount" stand hier "downNewAmount", 
+// so funktoiniert nicht korrekt, da Index nicht korrekt jeweils vergeben werden kann, Diese Funktion geht 
+//nicht "Siehe Elements" bei Untersuchen, Problem bei allen 3x Minus Symbole erscheint index Position (2) 
+// aber das falsch, es sollte wie bei downNewAmount  (Pfeil unten) einen mit Pos. 0 dann 1 dannn 2 erscheinen
