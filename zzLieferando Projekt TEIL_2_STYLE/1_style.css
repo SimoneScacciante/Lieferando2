@@ -1,0 +1,121 @@
+.test1 {
+    display: flex;
+}
+
+.test2 {
+    display: flex;
+}
+
+
+html {
+font-family: "Roboto", sans-serif; 
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    align-items: center;
+
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo h2 {
+    font-size: 30px;
+}
+
+.logoStyle {
+    width: 100px;
+    border-radius: 50%;
+}
+
+header h2 {
+    color: #ef6806;
+}
+
+header span { 
+    font-size: 16px;
+    font-weight: bold;
+} 
+
+.headerMenus {
+    display: flex;
+    align-items: center;
+}
+
+
+.headerMenus img {
+width: 60px;
+height: 60px;
+padding: 8px;
+
+}
+
+
+
+.mainContainer {
+    display: flex;
+}
+
+
+donutDescription p {
+    color:#0616ef
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.button {
+    display: flex;
+    width: 35px;
+    column-gap: 20px;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.basketContainer {
+    display: flex;
+    column-gap: 20px;
+}
+
+.basketContainerStyle {
+    border: solid 5px;
+    width: 150px;
+}
+
+.basketStyle {
+    padding-left: 40px;
+}
+
+.basketNoticeContainer {
+    border: solid red 5px;
+    padding: 50px;
+    width: 400px;
+}
+
+.payOrderStyle {
+    border: solid rgba(142, 151, 144, 0.767) 5px;
+    padding: 30px;
+}
+
+.payOrderStyleNotice {
+    border: solid rgba(142, 151, 144, 0.767) 5px;
+    padding: 30px;
+}

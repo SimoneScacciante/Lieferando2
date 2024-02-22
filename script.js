@@ -1,20 +1,20 @@
 let menuArray = [
     {
-        'name': 'Hamburger',
-        'recepte': ['Tomatensoße', 'Salami', 'Käse', 'Peperoni'],
-        'price': 10,
+        'name': 'Donut - Classic',
+        'recepte': ['mit Vollmilch Schokoladenglasur'],
+        'price': 2.00,
     },
 
     {
-        'name': 'Carbonara',
-        'recepte': ['Tomatensoße', 'Apfel'],
-        'price': 15,
+        'name': 'Donut Glitter Glam',
+        'recepte': ['Glitzernde Glasur, funkelnde Zuckerperlen'],
+        'price': 2.50,
     },
 
     {
-        'name': 'Pizza',
-        'recepte': ['Kartoffel', 'Curry', 'Ketchup'],
-        'price': 20,
+        'name': 'Donut - Rainbow Delight',
+        'recepte': ['Fruchtige Füllungen und einer Explosion von Regenbogenfarben'],
+        'price': 3.50,
     },
 ]
 
@@ -27,30 +27,36 @@ let deliverPrice = 5;
 function render() {
     let menuID = document.getElementById('menuID');
     menuID.innerHTML = '';
-    for (let i = 0; i < menuArray.length; i++) {
-        menuLoad(i);
+    for (let indexMenu = 0; i < menuArray.length; indexMenu++) {
+        menuLoad(indexMenu);
     }
 }
 
-function menuLoad(i) {
+function menuLoad(indexMenu) {
     let menuID = document.getElementById('menuID');
     const element = menuArray[i]
 
     menuID.innerHTML += /*html*/`
-    <div>
-        Name: ${element['name']} <br>
-        Zutaten: ${element['recepte']} <br>
-        Preis: ${element['price']} €  <br> 
-        Bestellung: <input id="amountID${i}" type="number" min="1" max ="10" value="1"><br>
-        <img class="cursor" src="./img/minus.png" onclick="reduceAmount(${i})">  
-        <img class="cursor" src="./img/plus.png" onclick="addToBasket(${i})"> 
-        <br> <br> <br>                                                 
-    </div> 
+    <div class="menuStyle"> 
+        <div>
+            ${element['name']} <br>
+             ${element['recepte']} <br>
+             ${element['price']} €  <br> 
+            Bestellung: <input id="amountID${indexMenu}" type="number" min="1" max ="10" value="1"><br>
+             <br> <br> <br>                                                 
+         </div> 
+
+        <div> 
+            <img class="cursor" src="./img/minus.png" onclick="reduceAmount(${indexMenu})">
+            Gesamtanzahl: ${orderAmountArray[i]}  
+             <img class="cursor" src="./img/plus.png" onclick="addToBasket(${indexMenu})"> 
+        </div>
+    </div>
 `}
 
 function reduceAmount(i) {
-    let index = orderMenuArray.indexOf(menuArray[i].name); 
-    downNewAmount(index); 
+    let index = orderMenuArray.indexOf(menuArray[i].name);
+    downNewAmount(index);
 }
 
 function addToBasket(index) {
@@ -74,6 +80,7 @@ function addToBasket(index) {
     showBasketNotice();
 }
 
+
 function getAmountFromInput(input) {
     let amountValue = +document.getElementById("amountID" + input).value;
     return amountValue;
@@ -85,26 +92,17 @@ function getMenuIndex(menu) {
 }
 
 function renderBasket() {
-    let basket = document.getElementById('basket');
+    let basket = document.getElementById('basketID');
     basket.innerHTML = '';
     for (let indexBasket = 0; indexBasket < orderMenuArray.length; indexBasket++) {
         basket.innerHTML += /*html*/ `
             <div> 
                 <div class="basketContainerStyle"> 
-                 Gericht: ${orderMenuArray[indexBasket]}  <img onclick="closeBasket(${indexBasket})" src="./img/close.png" class="cursor" ><br><br>
-                 Zwischenpreis: ${orderPriceArrayTotal[indexBasket]} € <br>  <br>                    
-                 Gesamtanzahl: ${orderAmountArray[indexBasket]} <br> <br>                                 
-                    <div class="basketStyle">
-                        <div class="button"> 
-                            <img class="cursor" src="./img/down.png" onclick="downNewAmount(${indexBasket})">
-                        </div>
-                        <div id="amountBasket${indexBasket}"> 
-                            ${orderAmountArray[indexBasket]} 
-                        </div>
-                        <div class="button">
-                             <img class="cursor" src="./img/up.png" onclick="upNewAmount(${indexBasket})"> 
-                        </div> <br>
-                    </div>
+                    ${orderAmountArray[indexBasket]} <!--Gesamtanzahl-->${orderMenuArray[indexBasket]}  <!--Gericht--> ${orderPriceArrayTotal[indexBasket]} € <!--Zwischenpreis-->     <img onclick="closeBasket(${indexBasket})" src="./img/close.png" class="cursor" ><br><br>
+                    <br>  <br>                    
+                    <img class="cursor" src="./img/minus.png" onclick="downNewAmount(${indexBasket})"> 
+                         ${orderAmountArray[indexBasket]} 
+                    <img class="cursor" src="./img/plus.png" onclick="upNewAmount(${indexBasket})"> 
                 </div>
             </div> <br> <br> <br>
         `;
@@ -120,19 +118,20 @@ function showBasketBill() {
     let bill = document.getElementById('basketBillID');
     bill.innerHTML = /*html*/ `
     <div> 
-        <h2>Zwsichen Preis aller Gerichte: ${totalOrderSum}€ </h2> 
-        <h2>Lieferkosten: + ${deliverPrice}€ </h2>
-        <h1>Gesamtpreis: ${totalOrderAndDeliverPrice}€</h1> 
+        <h2>Zwischensumme ${totalOrderSum}€ </h2> 
+        <h2>Lieferkosten ${deliverPrice}€ </h2>
+        <h1>Gesamtpreis ${totalOrderAndDeliverPrice}€</h1> 
+
     </div>
     `;
 }
 
-function showBasketNotice() {
+function showBasketNotice(i) {
     let bill = document.getElementById('basketNoticeID');
     bill.innerHTML = /*html*/ `
     <div class="basketNoticeContainer"> 
         <div class="payOrderStyle" id="payOrderID"> 
-             Mindest-Bestellwert ist noch nicht erreicht 
+             Benötigter Betrag, um den Mindestbestellwert zu erreichen [???]
         </div> <br>
 
         <div class="payOrderStyleNotice">  
@@ -141,9 +140,12 @@ function showBasketNotice() {
              3. Bei einem Bestellwert ab 100€ bekommen Sie eine Flasche erlesenen Qualitätswein gratis dazu <div id="checklistVineForFree_1"> </div> <br>
         </div>
     </div>
+
     `;
     calculateBasketNotice();
 }
+
+
 
 function calculateBasketNotice(index) {
     if (totalOrderAndDeliverPrice >= 40) {
