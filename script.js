@@ -1,6 +1,6 @@
 let menuArray = [
     {
-        'name': 'Donut - Classic',
+        'name': '<h3>Donut - Classic</h3>',
         'recepte': ['mit Vollmilch Schokoladenglasur'],
         'price': 2.00,
     },
@@ -27,12 +27,12 @@ let deliverPrice = 5;
 function render() {
     let menuID = document.getElementById('menuID');
     menuID.innerHTML = '';
-    for (let indexMenu = 0; i < menuArray.length; indexMenu++) {
-        menuLoad(indexMenu);
+    for (let i = 0; i < menuArray.length; i++) {
+        menuLoad(i);
     }
 }
 
-function menuLoad(indexMenu) {
+function menuLoad(i) {
     let menuID = document.getElementById('menuID');
     const element = menuArray[i]
 
@@ -42,14 +42,14 @@ function menuLoad(indexMenu) {
             ${element['name']} <br>
              ${element['recepte']} <br>
              ${element['price']} €  <br> 
-            Bestellung: <input id="amountID${indexMenu}" type="number" min="1" max ="10" value="1"><br>
-             <br> <br> <br>                                                 
+            Bestellung: <input id="amountID${i}" type="number" min="1" max ="10" value="1"><br>
+                                         
          </div> 
 
         <div> 
-            <img class="cursor" src="./img/minus.png" onclick="reduceAmount(${indexMenu})">
-            Gesamtanzahl: ${orderAmountArray[i]}  
-             <img class="cursor" src="./img/plus.png" onclick="addToBasket(${indexMenu})"> 
+            <img class="cursor" src="./img/minus.png" onclick="reduceAmount(${i})">
+            <img src="./img/donutSoloImg.png" class="donutSoloImgStyle">
+             <img class="cursor" src="./img/plus.png" onclick="addToBasket(${i})"> 
         </div>
     </div>
 `}
@@ -98,13 +98,13 @@ function renderBasket() {
         basket.innerHTML += /*html*/ `
             <div> 
                 <div class="basketContainerStyle"> 
-                    ${orderAmountArray[indexBasket]} <!--Gesamtanzahl-->${orderMenuArray[indexBasket]}  <!--Gericht--> ${orderPriceArrayTotal[indexBasket]} € <!--Zwischenpreis-->     <img onclick="closeBasket(${indexBasket})" src="./img/close.png" class="cursor" ><br><br>
-                    <br>  <br>                    
+                    ${orderAmountArray[indexBasket]} <!--Gesamtanzahl-->${orderMenuArray[indexBasket]}  <!--Gericht--> ${orderPriceArrayTotal[indexBasket]} € <!--Zwischenpreis-->     <img onclick="closeBasket(${indexBasket})" src="./img/close.png" class="cursor" >
+                            <br>         
                     <img class="cursor" src="./img/minus.png" onclick="downNewAmount(${indexBasket})"> 
                          ${orderAmountArray[indexBasket]} 
                     <img class="cursor" src="./img/plus.png" onclick="upNewAmount(${indexBasket})"> 
                 </div>
-            </div> <br> <br> <br>
+            </div> <br>
         `;
     }
 }
@@ -131,13 +131,13 @@ function showBasketNotice(i) {
     bill.innerHTML = /*html*/ `
     <div class="basketNoticeContainer"> 
         <div class="payOrderStyle" id="payOrderID"> 
-             Benötigter Betrag, um den Mindestbestellwert zu erreichen [???]
-        </div> <br>
+        <span> Mindest-Bestellwert ist noch nicht erreicht</span>
+        </div> 
 
         <div class="payOrderStyleNotice">  
-             1. Der Mindestbestellwert liegt bei 40 € <div id="checklistOrder_1"> </div> <br>
-             2. Bei einem Bestellwert ab 70€ ist die Lieferung frei Haus <div id="checklistFreeDeliver_2"> </div> <br>
-             3. Bei einem Bestellwert ab 100€ bekommen Sie eine Flasche erlesenen Qualitätswein gratis dazu <div id="checklistVineForFree_1"> </div> <br>
+             1. Der Mindestbestellwert liegt bei 10 € <div id="checklistOrder_1"> </div> <br>
+             2. Bei einem Bestellwert ab 25€ ist die Lieferung frei Haus <div id="checklistFreeDeliver_2"> </div> <br>
+             3. Bei einem Bestellwert ab 40€ bekommen Sie eine Flasche erlesenen Qualitätswein gratis dazu <div id="checklistVineForFree_1"> </div> <br>
         </div>
     </div>
 
@@ -148,19 +148,19 @@ function showBasketNotice(i) {
 
 
 function calculateBasketNotice(index) {
-    if (totalOrderAndDeliverPrice >= 40) {
+    if (totalOrderAndDeliverPrice >= 10) {
         document.getElementById('payOrderID').innerHTML = /*html*/ `
         <div> BEZAHLEN </div>`;
         document.getElementById('checklistOrder_1').innerHTML = /*html*/ `
         <img src="./img/correct.png"> `;
     }
 
-    if (totalOrderAndDeliverPrice >= 70) {
+    if (totalOrderAndDeliverPrice >= 25) {
         document.getElementById('checklistFreeDeliver_2').innerHTML = /*html*/ `
         <img src="./img/correct.png"> `;
     }
 
-    if (totalOrderAndDeliverPrice >= 100) {
+    if (totalOrderAndDeliverPrice >= 40) {
         document.getElementById('checklistVineForFree_1').innerHTML = /*html*/ `
         <img src="./img/correct.png"> `;
     }

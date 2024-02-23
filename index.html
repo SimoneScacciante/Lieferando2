@@ -40,52 +40,61 @@
         </div>
     </header>
 
-    <br><br> <br><br> <br><br> <br><br> <br><br>
 
 
     <div class="mainContainer">
-        <div class="descriptionAndMenuContainer">
-            <!--  <<<<<====== donutDescription =======>>>>>>>  -->
-            <donutDescription>
-                <h1>Donut Express</h1>
-                <div>
-                    <span class="material-symbols-outlined starRating"> star </span>
-                    <span class="material-symbols-outlined starRating"> star </span>
-                    <span class="material-symbols-outlined starRating"> star </span>
-                    <span class="material-symbols-outlined starRating"> star </span>
-                    <span class="material-symbols-outlined starRating"> star_half </span>
+        <div class="descriptionAndMenuAndBackgroundContainer">
+
+            <img src="./img/background.jpg" class="backgroundStyle">
+
+
+
+            <div class="descriptionAndMenu">
+                <!--  <<<<<====== donutDescription =======>>>>>>>  -->
+                <div class="donutDescriptionContainer">
+                    <img src="./img/donutSoloImg.png" class="donutSoloImgStyle">
+                    <h1>Donut Express</h1>
+                    <div>
+                        <span class="material-symbols-outlined starRating"> star </span>
+                        <span class="material-symbols-outlined starRating"> star </span>
+                        <span class="material-symbols-outlined starRating"> star </span>
+                        <span class="material-symbols-outlined starRating"> star </span>
+                        <span class="material-symbols-outlined starRating"> star_half </span>
+                    </div>
+
+                    <span class="material-symbols-outlined"> shopping_bag </span> Min. 15.00€ • <span
+                        class="material-symbols-outlined"> pedal_bike </span> 1.50 €
+
+                    <p> <b> Sei Teil unserer Community:</b> Möchtest du mehr über unsere Teilnahme an lokalen Events
+                        erfahren? <br> Melde dich für unseren Newsletter an und bleibe über unsere Community-Events und
+                        Partnerschaften auf dem Laufenden!
+                    </p>
                 </div>
 
-                <span class="material-symbols-outlined"> shopping_bag </span> Min. 15.00€ • <span class="material-symbols-outlined"> pedal_bike </span> 1.50 €
+                <!--  <<<<<====== donutMenuContainer =======>>>>>>>  -->
 
-                <p> <b> Sei Teil unserer Community:</b> Möchtest du mehr über unsere Teilnahme an lokalen Events
-                    erfahren? <br> Melde dich für unseren Newsletter an und bleibe über unsere Community-Events und
-                    Partnerschaften auf dem Laufenden!
-                </p>
-            </donutDescription>
-
-            <donutMenu>
-                <div>
+                <div class="donutMenuContainer">
                     <div id="menuID"></div>
                 </div>
-            </donutMenu>
+            </div>
         </div>
 
         <!--  <<<<<====== donutBasketContainer =======>>>>>>>  -->
-        <donutBasket>
-            <div class="donutBasketContainer">
-                <div id="basketID" class="basketContainer">
-                    <span> Warenkorb </span> <br>
-                    <span> Fülle deinen Warenkorb</span> <br>
-                    <p>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</p>
-                </div> <br> <br>
+        <div class="donutBasketContainer">
+            <div id="basketID" class="firstBasket">
+                <h2 class="headbasket"> Warenkorb </h2> <br>
+                <img src="./img/basketBig.png" class="basketBigStyle">
+                <span> Fülle deinen Warenkorb</span> <br>
+                <p>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</p>
+            </div>
 
+            <div class="secondBasket">
                 <div id="basketNoticeDeleteID">
                     <div id="basketBillID"> </div>
                     <div id="basketNoticeID"> </div>
                 </div>
             </div>
-        </donutBasket>
+        </div>
     </div>
 
 </body>

@@ -2,23 +2,15 @@ html {
     font-family: "Roboto", sans-serif;
 }
 
-/* <<<<<====== Container (Main) =======>>>>>>> */
-
-.mainContainer {
-    display: flex;
+body{
+    margin: 0px;
 }
-
-/* <<<<<====== Container (Description + Menu) =======>>>>>>> */
-
-
-.descriptionAndMenuContainer {
-    width: 1000px;
-}
-
 
 /* <<<<<====== header =======>>>>>>> */
 
 header {
+    z-index: 2; /* Siehe .donutBasketContainer, die größere Zahl überdeckt immer den anderen*/
+    height: 90px;
     display: flex;
     justify-content: space-between;
     position: absolute;
@@ -26,7 +18,10 @@ header {
     right: 0;
     left: 0;
     align-items: center;
+    background-color: white;
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.2);
 }
+
 
 .logo {
     display: flex;
@@ -62,60 +57,113 @@ header span {
     padding: 8px;
 }
 
+
+
 /* <<<<<====== Container (Main) =======>>>>>>> */
 
 .mainContainer {
     display: flex;
+    margin-top: 130px;
 }
 
-/* <<<<<====== donutDescription =======>>>>>>> */
+.backgroundStyle {
+    width: 100%;
+    max-height: 30vh;
+    object-position: center;
+    object-fit: cover;
 
+}
+
+
+/* <<<<<====== donutDescription & donutMenu =======>>>>>>> */
+
+.descriptionAndMenuAndBackgroundContainer {}
+
+
+.descriptionAndMenu {
+    color: green;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: -50px;
+}
+
+.donutDescriptionContainer {}
+
+.donutSoloImgStyle {
+    width: 100px;
+}
 
 .donutDescription p {
     color: #0616ef
 }
 
-
 .starRating {
     color: #ef6806;
     font-size: 20px !important;
-    font-variation-settings: "FILL" 1, "wght" 300;
+    font-variation-settings: "FILL"1, "wght"300;
     margin: -3px;
 }
 
+.menuStyle {
+    margin-bottom: 16px;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
 
-/* <<<<<====== donutMenu =======>>>>>>> */
+}
 
+
+/* <<<<<====== donutDescription & donutMenu =======>>>>>>> */
+
+.donutMenuContainer {
+    color: red;
+}
 
 .cursor {
     cursor: pointer;
 }
 
-.menuStyle {
-    display: flex;
-}
-
-
 /* <<<<<====== DonutBasket =======>>>>>>> */
 .donutBasketContainer {
-    width: 350px;
+    overflow: auto;
+    z-index: 1; /* Siehe header Class*/
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: white;
+    box-shadow: -5px 0 5px rgba(0, 0, 0, 0.2);
 }
 
+.headbasket{
+    margin-top: 100px;
+}
 
-.basketContainer {
-    column-gap: 20px;
+.firstBasket {
+    display: flex;
+    flex-direction: column;
+    margin-top: 130px;
+    align-items: center;
+    text-align: center;
+}
+
+.basketBigStyle{
+    width: 40px;
+}
+
+.secondBasket{
 }
 
 .basketContainerStyle {
     border: solid 5px;
     width: 300px;
-}
-
-
-.basketNoticeContainer {
-    border: solid red 5px;
-    padding: 50px;
-    width: 400px;
 }
 
 .payOrderStyle {
@@ -131,23 +179,8 @@ header span {
 
 /* <<<<<====== Sonstige =======>>>>>>> */
 
-
-
 .button {
     display: flex;
     width: 35px;
     column-gap: 20px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
