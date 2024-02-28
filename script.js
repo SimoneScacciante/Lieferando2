@@ -39,8 +39,8 @@ function menuLoad(i) {
     menuID.innerHTML += /*html*/`
     <div class="menuStyle"> 
         <div>
-            ${element['name']} <br>
-             ${element['recepte']} <br>
+            ${element['name']} 
+             ${element['recepte']} 
              ${element['price']} €  <br> 
             Bestellung: <input id="amountID${i}" type="number" min="1" max ="10" value="1"><br>
                                          

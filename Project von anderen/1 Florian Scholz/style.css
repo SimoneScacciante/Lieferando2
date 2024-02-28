@@ -473,7 +473,7 @@ header span {
 .productImage {
     width: 100px;
     height: 100px;
-    margin-right: 64px;
+    margin-right: 16px;
 }
 
 .addDishButton {
