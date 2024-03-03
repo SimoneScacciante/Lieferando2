@@ -1,6 +1,6 @@
 let menuArray = [
     {
-        'name': '<h3>Donut - Classic</h3>',
+        'name': 'Donut - Classic',
         'recepte': ['mit Vollmilch Schokoladenglasur'],
         'price': 2.00,
     },
@@ -39,17 +39,16 @@ function menuLoad(i) {
     menuID.innerHTML += /*html*/`
     <div class="menuStyle"> 
         <div>
-            ${element['name']} 
+           <h3> ${element['name']} </h3> 
              ${element['recepte']} 
-             ${element['price']} €  <br> 
-            Bestellung: <input id="amountID${i}" type="number" min="1" max ="10" value="1"><br>
-                                         
+            <!--ENTFERNE!!! --><input id="amountID${i}" type="number" min="1" max ="10" value="1"><br>
+            <b> ${element['price']} € </b>                         
          </div> 
 
-        <div> 
-            <img class="cursor" src="./img/minus.png" onclick="reduceAmount(${i})">
-            <img src="./img/donutSoloImg.png" class="donutSoloImgStyle">
-             <img class="cursor" src="./img/plus.png" onclick="addToBasket(${i})"> 
+        <div class="dishInteract"> 
+            <img class="cursor dishInteractButton" src="./img/minus.png" onclick="reduceAmount(${i})">
+            <img src="./img/donut_1.png" class="productImgStyle">
+             <img class="cursor dishInteractButton" src="./img/plus.png" onclick="addToBasket(${i})"> 
         </div>
     </div>
 `}
@@ -96,15 +95,35 @@ function renderBasket() {
     basket.innerHTML = '';
     for (let indexBasket = 0; indexBasket < orderMenuArray.length; indexBasket++) {
         basket.innerHTML += /*html*/ `
-            <div> 
-                <div class="basketContainerStyle"> 
-                    ${orderAmountArray[indexBasket]} <!--Gesamtanzahl-->${orderMenuArray[indexBasket]}  <!--Gericht--> ${orderPriceArrayTotal[indexBasket]} € <!--Zwischenpreis-->     <img onclick="closeBasket(${indexBasket})" src="./img/close.png" class="cursor" >
-                            <br>         
-                    <img class="cursor" src="./img/minus.png" onclick="downNewAmount(${indexBasket})"> 
+
+            <div class="dishInBasket">
+
+                <div class="dishInBasketHead">  
+                    <div>
+                        ${orderAmountArray[indexBasket]} <!--Gesamtanzahl-->
+                        ${orderMenuArray[indexBasket]}  <!--Gericht--> 
+                    </div>
+
+                    <div>
+                        ${orderPriceArrayTotal[indexBasket]} € <!--Zwischenpreis-->   
+                    </div>  
+                </div> <br>   
+
+                <div class="dishInBasketAmount">   
+                    <div>
+                        <img class="cursor" src="./img/minus.png" onclick="downNewAmount(${indexBasket})"> 
                          ${orderAmountArray[indexBasket]} 
-                    <img class="cursor" src="./img/plus.png" onclick="upNewAmount(${indexBasket})"> 
+                        <img class="cursor" src="./img/plus.png" onclick="upNewAmount(${indexBasket})"> 
+                    </div>
+                    <div>
+                        <img  onclick="closeBasket(${indexBasket})" src="./img/close.png" class="cursor" >   
+                    </div>
                 </div>
-            </div> <br>
+
+            </div> 
+            <br>
+
+
         `;
     }
 }
@@ -208,3 +227,7 @@ function closeBasket(index) {
         `;
     }
 }
+
+// Basket Style komplett machen
+// jedes Product Donut bild Einzeln darstellen
+// menu array entferne h3 aus Array
