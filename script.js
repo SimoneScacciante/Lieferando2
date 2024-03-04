@@ -231,3 +231,4 @@ function closeBasket(index) {
 // Basket Style komplett machen
 // jedes Product Donut bild Einzeln darstellen
 // menu array entferne h3 aus Array
+// Test
