@@ -160,7 +160,7 @@ header span {
     display: flex;
 }
 
-.dishInteractButton {
+.dishInteractButtonFromMenu {
     display: flex;
     height: 40px;
 }
@@ -174,7 +174,7 @@ header span {
     cursor: pointer;
 }
 
-.closeImg{
+.closeImg {
     width: 32px;
     display: flex;
     align-items: center;
@@ -229,7 +229,7 @@ header span {
     justify-content: space-between;
 }
 
-.dishName{
+.dishName {
     font-weight: 500;
     text-decoration: underline;
     margin-left: 8px;
@@ -246,24 +246,67 @@ header span {
     align-items: center;
 }
 
-.dishInBasketAmountValue span{
+.dishInBasketAmountValue span {
     margin-left: 12px;
     margin-right: 12px;
     color: green;
 }
 
+.dishInteractButtonFromBasket {
+    height: 45px;
+}
+
 .basketBillContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
     color: blue;
+
+
+    background-color: rgb(66, 216, 21);
+    padding: 22px;
+    margin: 21px;
+    border-radius: 10px;
+}
+
+.test1 span {
+    font-size: 18px;
+}
+
+.test2 span {
+    font-size: 18px;
+}
+
+.test3 span {
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .payOrderStyle {
-    border: solid rgba(142, 151, 144, 0.767) 5px;
-    padding: 30px;
+    display: flex;
+    column-gap: 30px;
+    margin: 21px;
+    padding: 22px;
+    border-radius: 10px;
+    background-color: rgb(67, 13, 194);
+    font-size: 13px;
+}
+
+.test8{
+    display: flex;
+}
+
+.test5{
+    color: red;
 }
 
 .payOrderStyleNotice {
-    border: solid rgba(142, 151, 144, 0.767) 5px;
-    padding: 30px;
+    font-size: 15px;
+    background-color: rgb(196, 170, 4);
+    padding: 22px;
+    padding-bottom: 16px;
+    margin: 21px;
+    border-radius: 10px;
 }
 
 

@@ -46,9 +46,9 @@ function menuLoad(i) {
          </div> 
 
         <div class="dishInteract"> 
-            <img class="cursor dishInteractButton" src="./img/minus.png" onclick="reduceAmount(${i})">
+            <img class="cursor dishInteractButtonFromMenu" src="./img/minus.png" onclick="reduceAmount(${i})">
             <img src="./img/donut_1.png" class="productImgStyle">
-             <img class="cursor dishInteractButton" src="./img/plus.png" onclick="addToBasket(${i})"> 
+             <img class="cursor dishInteractButtonFromMenu" src="./img/plus.png" onclick="addToBasket(${i})"> 
         </div>
     </div>
 `}
@@ -111,9 +111,9 @@ function renderBasket() {
 
                 <div class="dishInBasketAmount">   
                     <div class="dishInBasketAmountValue">
-                        <img class="cursor" src="./img/minus.png" onclick="downNewAmount(${indexBasket})"> 
+                        <img class="cursor dishInteractButtonFromBasket" src="./img/minus.png" onclick="downNewAmount(${indexBasket})"> 
                         <span> ${orderAmountArray[indexBasket]} </span>
-                        <img class="cursor" src="./img/plus.png" onclick="upNewAmount(${indexBasket})"> 
+                        <img class="cursor dishInteractButtonFromBasket" src="./img/plus.png" onclick="upNewAmount(${indexBasket})"> 
                     </div>
                     <div class="closeImg">
                         <img onclick="closeBasket(${indexBasket})" src="./img/close.png" class="cursor closeImg" >   
@@ -137,9 +137,21 @@ function showBasketBill() {
     let bill = document.getElementById('basketBillID');
     bill.innerHTML = /*html*/ `
     <div class="basketBillContainer"> 
-        <h2>Zwischensumme ${totalOrderSum}€ </h2> 
-        <h2>Lieferkosten ${deliverPrice}€ </h2>
-        <h1>Gesamtpreis ${totalOrderAndDeliverPrice}€</h1> 
+
+        <div class="test1">
+            <span> Zwischensumme </span> 
+            <span> ${totalOrderSum}€ </span> 
+        </div>
+
+        <div class="test2">
+            <span> Lieferkosten </span>
+            <span> ${deliverPrice}€ </span>
+        </div>
+
+        <div class="test3">
+            <span> Gesamtpreis </span>
+            <span>  ${totalOrderAndDeliverPrice}€ </span>
+        </div> 
 
     </div>
     `;
@@ -148,16 +160,25 @@ function showBasketBill() {
 function showBasketNotice(i) {
     let bill = document.getElementById('basketNoticeID');
     bill.innerHTML = /*html*/ `
+
     <div class="basketNoticeContainer"> 
-        <div class="payOrderStyle" id="payOrderID"> 
-        <span> Mindest-Bestellwert ist noch nicht erreicht</span>
-        </div> 
 
         <div class="payOrderStyleNotice">  
-             1. Der Mindestbestellwert liegt bei 10 € <div id="checklistOrder_1"> </div> <br>
-             2. Bei einem Bestellwert ab 25€ ist die Lieferung frei Haus <div id="checklistFreeDeliver_2"> </div> <br>
-             3. Bei einem Bestellwert ab 40€ bekommen Sie eine Flasche erlesenen Qualitätswein gratis dazu <div id="checklistVineForFree_1"> </div> <br>
+                1. Der Mindestbestellwert liegt bei 10€  <div id="checklistOrder_1"> </div> <br>
+                2. <span> Ab 25€ Bestellwert ist die Lieferung kostenlos </span> <div id="checklistFreeDeliver_2"> </div> <br>
+                3. <span> Ab 40€ Bestellwert gibt's ein Donut Express T-Shirt gratis! </span> <div id="checklistForFree_1"> </div>
         </div>
+    </div>
+
+    </div>
+        <div class="payOrderStyle" id="payOrderID"> 
+            <div> 
+                <span> Benötigter Betrag, um dem Mindestbestellwert zu erreichen</span>
+            </div>
+            <div> 
+                <b class="test5"> 8.50€ </b>
+            </div>
+        </div> 
     </div>
 
     `;
@@ -180,7 +201,7 @@ function calculateBasketNotice(index) {
     }
 
     if (totalOrderAndDeliverPrice >= 40) {
-        document.getElementById('checklistVineForFree_1').innerHTML = /*html*/ `
+        document.getElementById('checklistForFree_1').innerHTML = /*html*/ `
         <img src="./img/correct.png"> `;
     }
 }
