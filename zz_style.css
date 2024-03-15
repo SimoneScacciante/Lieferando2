@@ -64,6 +64,7 @@ header span {
 
 .mainContainer {
     margin-top: 90px;
+    width: 100%;
 }
 
 .backgroundStyle {
@@ -76,8 +77,11 @@ header span {
 /* <<<<<====== donutDescription =======>>>>>>> */
 
 .descriptionAndMenu {
-    margin-left: 240px;
-    margin-right: 575px;
+    width: 65%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: -50px;
 }
 
@@ -381,7 +385,7 @@ header span {
 
 
 
-@media  (max-width: 1500px) {
+@media (max-width: 1500px) {
 
     .descriptionAndMenu {
         color: red;

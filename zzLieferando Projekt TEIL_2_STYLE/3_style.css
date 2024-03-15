@@ -23,6 +23,7 @@ header {
     box-shadow: -10px 0 10px rgba(0, 0, 0, 0.2);
 }
 
+
 .headerLogo {
     display: flex;
     align-items: center;
@@ -60,6 +61,8 @@ header span {
     margin-right: 16px;
 }
 
+
+
 /* <<<<<====== Container (Main) =======>>>>>>> */
 
 .mainContainer {
@@ -71,9 +74,13 @@ header span {
     max-height: 30vh;
     object-position: center;
     object-fit: cover;
+
 }
 
 /* <<<<<====== donutDescription =======>>>>>>> */
+
+.descriptionAndMenuAndBackgroundContainer {}
+
 
 .descriptionAndMenu {
     margin-left: 240px;
@@ -96,6 +103,7 @@ header span {
 
 .donutDescription p {
     color: #0616ef;
+
 }
 
 .starRating {
@@ -108,6 +116,7 @@ header span {
 .rating {
     display: flex;
 }
+
 
 .ratingText {
     margin-left: 8px;
@@ -134,6 +143,8 @@ header span {
 
 /* <<<<<====== donutMenu =======>>>>>>> */
 
+.donutMenuContainer {}
+
 .menuStyle {
     margin-bottom: 16px;
     height: 120px;
@@ -143,11 +154,6 @@ header span {
     border-radius: 10px;
     box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
     padding: 7px 20px 7px 20px;
-}
-
-.menuStyleSub p {
-    margin-top: 0px;
-    margin-bottom: 8px;
 
 }
 
@@ -174,6 +180,10 @@ header span {
     cursor: pointer;
 }
 
+.cursor :hover {
+    cursor: pointer;
+}
+
 .closeImg {
     width: 32px;
     display: flex;
@@ -181,6 +191,9 @@ header span {
 }
 
 /* <<<<<====== DonutBasket =======>>>>>>> */
+
+
+
 
 .donutBasketContainer {
     display: flex;
@@ -232,7 +245,7 @@ header span {
     margin-bottom: 10px;
 }
 
-.disnInBasketContainer_2 {
+.disnInBasketContainer_2{
 
 
     padding: 4px 15px 4px 15px;
@@ -253,9 +266,11 @@ header span {
     opacity: 1;
 }
 
+
 .dishName {
     font-weight: 500;
     text-decoration: underline;
+    margin-left: 8px;
 }
 
 .dishInBasketAmount {
@@ -284,19 +299,20 @@ header span {
     display: flex;
     flex-direction: column;
     text-align: center;
+
+
     background-color: rgb(244, 244, 244);
     border-radius: 10px;
+
     padding: 10px;
     margin-left: 25px;
     margin-right: 25px;
 }
 
-.basketBillContainer span {
-    padding-bottom: 40px;
-}
-
 .basketBillContainerSubtotal span {
     font-size: 14px;
+    color: red;
+
 }
 
 .basketBillContainerDeliver span {
@@ -304,12 +320,8 @@ header span {
 }
 
 .basketBillContainerTotal span {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
-}
-
-.basketBillContainerTotal {
-    padding-top: 5px;
 }
 
 .payOrderStyle_1 {
@@ -322,6 +334,7 @@ header span {
     margin: 25px;
     /* STIMMMMMMMMMMMT NICHT*/
     padding: 10px;
+
 }
 
 .payOrderStyle_2 {
@@ -350,15 +363,18 @@ header span {
     display: flex;
     justify-content: center;
     flex-direction: column;
+
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 25px;
     font-size: 14px;
     padding: 10px;
+
     background-color: rgb(244 244 244);
     border-radius: 10px;
 }
 
+.payOrderStyleNotice span {}
 
 .payOrderSpan {
     padding-bottom: 10px;
@@ -374,17 +390,4 @@ header span {
     display: flex;
     width: 35px;
     column-gap: 20px;
-}
-
-
-
-
-
-
-@media  (max-width: 1500px) {
-
-    .descriptionAndMenu {
-        color: red;
-    }
-
 }
