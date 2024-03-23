@@ -77,17 +77,20 @@ header span {
 /* <<<<<====== donutDescription =======>>>>>>> */
 
 .descriptionAndMenu {
-    width: 65%;
-
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-right: 350px;
     margin-top: -50px;
 }
 
 .donutDescriptionContainer {
     font-weight: 300;
+    width: 65vw;
+
 }
+
+.donutDescriptionSubContainer {}
 
 .donutDescriptionContainer h1 {
     margin-top: 8px;
@@ -137,6 +140,12 @@ header span {
 }
 
 /* <<<<<====== donutMenu =======>>>>>>> */
+
+.donutMenuContainer {
+    display: flex;
+    flex-direction: column;
+    width: 65vw;
+}
 
 .menuStyle {
     margin-bottom: 16px;
@@ -383,12 +392,114 @@ header span {
 
 
 
+@media (max-width: 1150px) {
 
-
-@media (max-width: 1500px) {
-
-    .descriptionAndMenu {
-        color: red;
+    .donutDescriptionContainer {
+        width: 90vw;
     }
 
+    .donutMenuContainer {
+        width: 90vw
+    }
+
+    .donutBasketContainer {
+        visibility: hidden;
+    }
+
+
+    .descriptionAndMenu {
+        margin-right: 0px;
+    }
+
+    .mobileOrderContainer {
+        display: flex;
+        justify-content: center;
+        background-color: #ef6806;
+        border-radius: 24px;
+        height: 48px;
+        box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2);
+        margin-bottom: 10px;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    .mobileOrderButton {
+        border: unset;
+        background-color: #ef6806;
+        color: white;
+        font-size: 24px;
+    }
+
+    .mobileOrderContainer:hover {  /* warum brauche ich zwei Hover? */
+        cursor: pointer;
+    }
+
+    .mobileOrderButton:hover {  /* warum brauche ich zwei Hover? */
+        cursor: pointer;
+    }
+
+    .mobileAmount {
+        display: flex;
+        margin-right: 4px;
+    }
+
+    .mobileSumAmount {
+        background-color: #262626;
+        border-radius: 50%;
+        width: 30px;
+        height: 21px;
+        font-size: 18px;
+        margin-right: 5pxpx;
+        margin-top: -8px;
+        z-index: 2;
+    }
 }
+
+@media (max-width: 750px) {
+    .backgroundStyle {
+        max-height: 20vh;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .displayNoneSpan {
+        display: none;
+    }
+}
+
+
+/*
+<===== Responsive einen Container Verschwieden lassen ======>
+Ziel: Du willst Container (Classe) "donutBasketContainer" verschwinden lassen
+
+Option A.)
+- Wenn JavaScript Funktion beibehalten werden soll vermutlich das besser
+
+    .donutBasketContainer{
+        visibility: hidden;
+    }
+
+Option B.)
+
+    .donutBasketContainer {
+        display: none;
+    }
+
+
+    @Unterschied Option A und Option B:
+    Der Unterschied zwischen den beiden Optionen liegt im Rendering des Elements auf der Webseite:
+
+Option A: Durch die CSS-Eigenschaft visibility: hidden; wird das Element zwar unsichtbar gemacht, es nimmt jedoch weiterhin Platz auf der Seite ein. Das bedeutet, dass der Container zwar nicht sichtbar ist, aber immer noch den Raum einnimmt, den er normalerweise hätte. Dadurch können andere Elemente weiterhin beeinflusst werden, als ob der Container sichtbar wäre.
+
+Option B: Wenn du display: none; verwendest, wird das Element aus dem normalen Dokumentenfluss entfernt. Es wird weder gerendert noch nimmt es Platz auf der Seite ein. Dadurch wird der Container nicht nur unsichtbar, sondern auch aus dem Layout entfernt, sodass andere Elemente nicht von ihm beeinflusst werden.
+
+Für dein Ziel, den Container ab einer bestimmten Bildschirmgröße zu verstecken und eine andere Ansicht für Tablets zu ermöglichen, ist es wahrscheinlich besser, display: none; zu verwenden, da du sicherstellen möchtest, dass der Container nicht nur unsichtbar, sondern auch aus dem Layout entfernt wird, um Platz für die neue Ansicht zu schaffen.
+
+
+
+
+
+
+
+*/
