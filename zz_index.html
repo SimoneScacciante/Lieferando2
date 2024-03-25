@@ -35,7 +35,7 @@
             <img src="./img/menu.png">
         </div>
     </header>
-    <div class="mainContainer">
+    <div class="mainContainer" id="hiddenMainContainerID">
         <img src="./img/background.jpg" class="backgroundStyle">
         <div class="descriptionAndMenu">
             <!--  <<<<<====== donutDescription =======>>>>>>>  -->
@@ -66,17 +66,14 @@
 
             <div class="donutMenuContainer" id="menuID">
             </div>
-
         </div>
-
-
     </div>
     <!--  <<<<<====== donutBasketContainer =======>>>>>>>  -->
     <div class="donutBasketContainer" id="donutBasketContainerID">
     </div>
 
-    <div class="mobileOrderContainer">
-        <button class="mobileOrderButton">
+    <div class="mobileOrderContainer hideMobileContainer visibleMobileContainer">
+        <button onclick="showMobileBasket()" class="mobileOrderButton">
             <div class="mobileAmount">
                 <span class="mobileSumAmount"> 10 </span>
                 <span class="material-symbols-outlined">shopping_basket</span>
@@ -85,7 +82,10 @@
         </button>
     </div>
 
-
+    <div class="hidden" id="visibleID">
+        <div class="test">
+        </div>
+    </div>
 
 </body>
 

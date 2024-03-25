@@ -212,7 +212,7 @@ function showBasketNotice(i) {
     bill.innerHTML = /*html*/ `
     <div class="basketNoticeContainer"> 
         <div class="payOrderStyleNotice">  
-            <div class="payOrderSpan"><span > 1. Der Mindestbestellwert liegt bei ${minimumOrderValue} <span id="checklistOrder_1"> </span> </span></div>
+            <div class="payOrderSpan"><span > 1. Der Mindestbestellwert liegt bei ${minimumOrderValue}€ <span id="checklistOrder_1"> </span> </span></div>
             <div class="payOrderSpan"><span> 2. Kostenloser Versand ab 25€ <span id="checklistFreeDeliver_2"> </span> </span></div>
             <div> 3. Gratis Donut Express T-Shirt ab 40€ </span> <span id="checklistForFree_1"> </span> </span></div>
         </div>
@@ -297,4 +297,10 @@ function closeBasket(index) {
     }
 }
 
+function showMobileBasket() {
+    document.getElementById("hiddenMainContainerID").classList.add("d-none");
+    document.getElementById("donutBasketContainerID").classList.add("d-none");
+    document.getElementById("visibleID").classList.add("visibility");
+
+}
 
