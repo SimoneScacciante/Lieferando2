@@ -32,6 +32,18 @@ header {
     font-size: 30px;
 }
 
+.headerLogo:hover {
+    cursor: pointer;
+}
+
+.displayNoneSpan:hover {
+    cursor: pointer
+}
+
+.hover {
+    cursor: pointer;
+}
+
 .logoStyle {
     width: 80px;
     padding-left: 20px;
@@ -89,8 +101,6 @@ header span {
     width: 65vw;
 
 }
-
-.donutDescriptionSubContainer {}
 
 .donutDescriptionContainer h1 {
     margin-top: 8px;
@@ -161,7 +171,6 @@ header span {
 .menuStyleSub p {
     margin-top: 0px;
     margin-bottom: 8px;
-
 }
 
 .menuStyle h3 {
@@ -176,6 +185,11 @@ header span {
 .dishInteractButtonFromMenu {
     display: flex;
     height: 40px;
+}
+
+.dishInteractButtonFromMenu:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 100%;
 }
 
 .productImgStyle {
@@ -208,6 +222,7 @@ header span {
     flex-direction: column;
     background-color: white;
     box-shadow: -5px 0 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 65px;
 }
 
 .firstBasket {
@@ -229,6 +244,10 @@ header span {
 
 .secondBasket {
     padding-bottom: 30px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .basketBigStyleImg {
@@ -246,8 +265,6 @@ header span {
 }
 
 .disnInBasketContainer_2 {
-
-
     padding: 4px 15px 4px 15px;
 }
 
@@ -286,7 +303,6 @@ header span {
 .dishInBasketAmountValue span {
     margin-left: 0px;
     margin-right: 0px;
-    color: green;
 }
 
 .dishInteractButtonFromBasket {
@@ -300,8 +316,7 @@ header span {
     background-color: rgb(244, 244, 244);
     border-radius: 10px;
     padding: 10px;
-    margin-left: 25px;
-    margin-right: 25px;
+    width: 300px;
 }
 
 .basketBillContainer span {
@@ -332,8 +347,9 @@ header span {
     border-radius: 10px;
     background-color: rgb(244, 244, 244);
     font-size: 13px;
-    margin: 25px;
-    /* STIMMMMMMMMMMMT NICHT*/
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 300px;
     padding: 10px;
 }
 
@@ -353,6 +369,11 @@ header span {
     background-color: #ef6806;
 }
 
+.payOrderStyle_2:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
 .payOrderStillToPay {
     color: red;
     display: flex;
@@ -363,15 +384,14 @@ header span {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin-left: 20px;
-    margin-right: 20px;
+    align-items: center;
     margin-top: 25px;
     font-size: 14px;
     padding: 10px;
     background-color: rgb(244 244 244);
     border-radius: 10px;
+    width: 300px;
 }
-
 
 .payOrderSpan {
     padding-bottom: 10px;
@@ -389,38 +409,58 @@ header span {
     column-gap: 20px;
 }
 
-
-.hideMobileContainer {
-    /*damit wird zugewiesener Container unsichtbar*/
-    visibility: hidden;
-}
-
-
-.hidden {
-    visibility: hidden;
-}
-
-.visibility {
-    visibility: visible !important;
-}
-
-.test {
+.mobileBasketContainer {
     background-color: green;
-    height: 50vh;
+    height: 80vh;
+}
+
+.d-block {
+    display: block;
+}
+
+.backToPageContainer {
+    display: flex;
+    justify-content: center;
+}
+
+
+.backToPageStyle {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.backToPageStyle:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.mobileOrderContainer {
+    display: none;
 }
 
 
 @media (max-width: 1150px) {
 
+    .backToPageContainer {
+        padding-bottom: 80px;
+    }
+
+    .visible {
+        visibility: visible !important;
+    }
+
+    .hidden {
+        visibility: hidden !important;
+    }
+
     .d-none {
         display: none;
     }
 
-    .visibleMobileContainer {
-        /*damit wird zugewiesener Container sichtbar*/
-        visibility: visible !important;
+    .donutBasketContainer {
+        display: none;
     }
-
 
     .donutDescriptionContainer {
         width: 90vw;
@@ -429,11 +469,6 @@ header span {
     .donutMenuContainer {
         width: 90vw
     }
-
-    .donutBasketContainer {
-        visibility: hidden;
-    }
-
 
     .descriptionAndMenu {
         margin-right: 0px;
@@ -445,7 +480,6 @@ header span {
 
     /*  <=== MobileContainer ===> */
 
-
     .mobileOrderContainer {
         display: flex;
         justify-content: center;
@@ -456,7 +490,6 @@ header span {
         margin-bottom: 10px;
         margin-left: 50px;
         margin-right: 50px;
-
         position: fixed;
         bottom: 0;
         left: 0;
@@ -473,6 +506,7 @@ header span {
     .mobileOrderContainer:hover {
         /* warum brauche ich zwei Hover? */
         cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
     .mobileOrderButton:hover {
@@ -497,6 +531,10 @@ header span {
     }
 }
 
+.mobileSumStyle {
+    padding-left: 15px;
+}
+
 @media (max-width: 750px) {
     .backgroundStyle {
         max-height: 20vh;
@@ -508,40 +546,3 @@ header span {
         display: none;
     }
 }
-
-
-
-/*
-<===== Responsive einen Container Verschwieden lassen ======>
-Ziel: Du willst Container (Classe) "donutBasketContainer" verschwinden lassen
-
-Option A.)
-- Wenn JavaScript Funktion beibehalten werden soll vermutlich das besser
-
-    .donutBasketContainer{
-        visibility: hidden;
-    }
-
-Option B.)
-
-    .donutBasketContainer {
-        display: none;
-    }
-
-
-    @Unterschied Option A und Option B:
-    Der Unterschied zwischen den beiden Optionen liegt im Rendering des Elements auf der Webseite:
-
-Option A: Durch die CSS-Eigenschaft visibility: hidden; wird das Element zwar unsichtbar gemacht, es nimmt jedoch weiterhin Platz auf der Seite ein. Das bedeutet, dass der Container zwar nicht sichtbar ist, aber immer noch den Raum einnimmt, den er normalerweise hätte. Dadurch können andere Elemente weiterhin beeinflusst werden, als ob der Container sichtbar wäre.
-
-Option B: Wenn du display: none; verwendest, wird das Element aus dem normalen Dokumentenfluss entfernt. Es wird weder gerendert noch nimmt es Platz auf der Seite ein. Dadurch wird der Container nicht nur unsichtbar, sondern auch aus dem Layout entfernt, sodass andere Elemente nicht von ihm beeinflusst werden.
-
-Für dein Ziel, den Container ab einer bestimmten Bildschirmgröße zu verstecken und eine andere Ansicht für Tablets zu ermöglichen, ist es wahrscheinlich besser, display: none; zu verwenden, da du sicherstellen möchtest, dass der Container nicht nur unsichtbar, sondern auch aus dem Layout entfernt wird, um Platz für die neue Ansicht zu schaffen.
-
-
-
-
-
-
-
-*/

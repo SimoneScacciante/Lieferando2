@@ -35,7 +35,7 @@ let menuArray = [
         'price': 2.00,
         'picture': './img/donut/donut_5.png',
     },
-    
+
     {
         "name": "Peanut Butter",
         "recepte": ["Erdnussbutterfüllung mit einer Schicht Fruchtgelee oben drauf"],
@@ -55,7 +55,7 @@ let orderAmountArray = [];
 let orderPriceArraySolo = [];
 let orderPriceArrayTotal = [];
 let deliverPrice = 3.50;
-let minimumOrderValue = 10;
+let minimumOrderValue = 15;
 
 function render() {
     let menuID = document.getElementById('menuID');
@@ -202,7 +202,41 @@ function showBasketBill() {
         </div> 
     </div>
     `;
+    showTotalMobileAmount();
+    showTotalMobileSum();
 }
+
+function showTotalMobileAmount() {
+    let = totalOrderAmount = 0
+    for (let amounts = 0; amounts < orderAmountArray.length; amounts++) {
+        totalOrderAmount += orderAmountArray[amounts]
+    }
+    let mobileTotalAmountID = document.getElementById('mobileTotalAmountID');
+    mobileTotalAmountID.innerHTML = /*html*/ `
+    <span class="mobileSumAmount"> ${totalOrderAmount}  </span>
+   `
+}
+
+function showTotalMobileSum() {
+    let = totalOrderSum = 0;
+    for (let prices = 0; prices < orderPriceArrayTotal.length; prices++) {
+        totalOrderSum += orderPriceArrayTotal[prices];
+    }
+
+    if (totalOrderSum > 1) { /* ohne diese If/Else Abfrage würde immer 3.50€ aufgrund von deliverPriceim TotalordeAnd... bleiben*/
+        totalOrderAndDeliverPrice = totalOrderSum + deliverPrice;
+        let mobileTotalSumID = document.getElementById('mobileTotalSumID');
+        mobileTotalSumID.innerHTML = /*html*/ ` 
+    <span>Warenkorb ${totalOrderAndDeliverPrice.toFixed(2)}€</span>
+    `
+    } else {
+        let mobileTotalSumID = document.getElementById('mobileTotalSumID');
+        mobileTotalSumID.innerHTML = /*html*/ ` 
+        <span>Warenkorb </span>
+        `
+    }
+}
+
 
 function showBasketNotice(i) {
     let bill = document.getElementById('basketNoticeID');
@@ -230,12 +264,10 @@ function showBasketNotice(i) {
     calculateBasketNotice();
 }
 
-
-
 function calculateBasketNotice(index) {
-    if (totalOrderAndDeliverPrice >= 10) {
+    if (totalOrderAndDeliverPrice >= 15) {
         document.getElementById('payOrderID').innerHTML = /*html*/ `
-        <div class="payOrderStyle_2"> BEZAHLEN </div>`;
+        <div onclick="payment()" class="payOrderStyle_2"> BEZAHLEN </div>`;
         document.getElementById('checklistOrder_1').innerHTML = /*html*/ `
         <img class="correctImg" src="./img/correct.png"> `;
         var payOrderIDElement = document.getElementById('payOrderID');
@@ -275,6 +307,7 @@ function downNewAmount(index) {
     }
 }
 
+
 function closeBasket(index) {
     let getMenuIndexOf = getMenuIndex(orderMenuArray[index]);
 
@@ -287,7 +320,7 @@ function closeBasket(index) {
         showBasketBill();
     }
 
-    if (orderAmountArray.length === 0) {
+    if (window.innerWidth >= 1150 && orderAmountArray.length === 0) { /* Desktop Ansicht */
         let secondBasketWithDeleteID = document.getElementById('secondBasketWithDeleteID');
         secondBasketWithDeleteID.innerHTML = /*html*/`
         <div id="payButtonID"> </div>
@@ -295,12 +328,71 @@ function closeBasket(index) {
         `;
         showBasketContainer();
     }
+
+    if (window.innerWidth <= 1150 && orderAmountArray.length === 0) { /* Mobile Ansicht */
+        document.getElementById('secondBasketWithDeleteID').innerHTML = '';
+        closeMobileBasket();
+        render();
+    }
 }
 
 function showMobileBasket() {
-    document.getElementById("hiddenMainContainerID").classList.add("d-none");
-    document.getElementById("donutBasketContainerID").classList.add("d-none");
-    document.getElementById("visibleID").classList.add("visibility");
+    let hiddenMainContainer = document.getElementById("hiddenMainContainerID");
+    let donutBasketContainer = document.getElementById("donutBasketContainerID");
+    let backToPageButton = document.getElementById("backToPageID");
+    let mobileOrderContainer = document.getElementById("mobileOrderContainerID");
 
+    hiddenMainContainer.classList.add("d-none");  // Hauptseite verstecken 
+    donutBasketContainer.classList.remove("donutBasketContainer"); // Warenkorb anzeigen
+    backToPageButton.classList.add("visible"); // Zurück-Button anzeigen
+    mobileOrderContainerID.classList.add("hidden"); // mobileOrderContainer verstecken
+
+    backToPageButton.innerHTML = /*html*/ `
+    <button onclick="showMobileBackToPage()" class="backToPageStyle">Zurück zur Hauptseite</button>
+    `;
 }
 
+function showMobileBackToPage() {
+    let hiddenMainContainer = document.getElementById("hiddenMainContainerID"); // Hauptseite anzeigen 
+    let donutBasketContainer = document.getElementById("donutBasketContainerID"); // Warenkorb verstekcen
+    let backToPageButton = document.getElementById("backToPageID"); // Zurück-Button verstecken
+    let mobileOrderContainer = document.getElementById("mobileOrderContainerID"); // mobileOrderContainer anzeigen
+
+    hiddenMainContainer.classList.remove("d-none");
+    donutBasketContainer.classList.add("donutBasketContainer");
+    backToPageButton.classList.remove("visible");
+    backToPageButton.innerHTML = ''; // wichtig, damit Zeile geleert wird, da du in Zeile 354 niedergeschrieben hast
+    mobileOrderContainerID.classList.remove("hidden"); // mobileOrderContainer anzeigen
+}
+
+function closeMobileBasket() {
+    document.getElementById("hiddenMainContainerID").classList.remove("d-none"); /* lässt MainPage wieder anzeigen, da d-none entfernt wird */
+    document.getElementById("donutBasketContainerID").classList.add("donutBasketContainer"); /* füge die Klasse mit enthaltene d-none wieder ein, d-none wie aktiviert = donutBasketContainer wird wieder ausgeblendet */
+}
+
+
+
+function payment() {
+
+    alert("Donutastico dankt dir für deine Bestellung!");
+
+    orderMenuArray = [];
+    orderAmountArray = [];
+    orderPriceArraySolo = [];
+    orderPriceArrayTotal = [];
+    deliverPrice = 3.50; /* System überträgt diesen Wert auf render (quasi Neustart von deliverPrice) ACHTUNG! Du darfst nicht schreiben wie bei den anderen "deliverPrice = []" du hast in Zeile  57 den deliverPrice als "FloatingNumber definiert und nicht als Array" */
+
+    totalOrderSum = [];
+    totalOrderAndDeliverPrice = [];
+    totalOrderAmount = [];
+
+    if (window.innerWidth >= 1150) {
+
+    } else {
+    showMobileBackToPage();
+    }
+    showTotalMobileSum();
+    showTotalMobileAmount();
+    render();
+
+}

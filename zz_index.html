@@ -21,18 +21,17 @@
     <link rel="stylesheet" href="zz_style.css">
 </head>
 
-
 <body onload="render()">
 
     <header>
-        <div class="headerLogo">
+        <div onclick="showMobileBackToPage()" class="headerLogo">
             <img class="logoStyle" src="./img/me_3.jpg">
             <h2 class="siteName">Donutastico!</h2>
         </div>
-        <span class="displayNoneSpan">Speisekarte</span>
+        <span class="displayNoneSpan foodMenuStyle">Speisekarte</span>
         <div class="headerMenus">
-            <img src="./img/german.png">
-            <img src="./img/menu.png">
+            <img class="hover" src="./img/german.png">
+            <img class="hover" src="./img/menu.png">
         </div>
     </header>
     <div class="mainContainer" id="hiddenMainContainerID">
@@ -40,7 +39,7 @@
         <div class="descriptionAndMenu">
             <!--  <<<<<====== donutDescription =======>>>>>>>  -->
             <div class="donutDescriptionContainer">
-                <div class="donutDescriptionSubContainer">
+                <div>
                     <img src="./img/logoDescription.png" class="logoDescriptionStyle">
                     <h1>Donut Express</h1>
                     <div class="rating">
@@ -63,30 +62,27 @@
                 </div>
             </div>
             <!--  <<<<<====== donutMenuContainer =======>>>>>>>  -->
-
             <div class="donutMenuContainer" id="menuID">
             </div>
         </div>
     </div>
     <!--  <<<<<====== donutBasketContainer =======>>>>>>>  -->
-    <div class="donutBasketContainer" id="donutBasketContainerID">
+    <div class="donutBasketContainer " id="donutBasketContainerID">
     </div>
 
-    <div class="mobileOrderContainer hideMobileContainer visibleMobileContainer">
-        <button onclick="showMobileBasket()" class="mobileOrderButton">
-            <div class="mobileAmount">
-                <span class="mobileSumAmount"> 10 </span>
-                <span class="material-symbols-outlined">shopping_basket</span>
-                Warenkorb (91.50€)
-            </div>
-        </button>
-    </div>
-
-    <div class="hidden" id="visibleID">
-        <div class="test">
+    <div onclick="showMobileBasket()" id="mobileOrderContainerID">
+        <div class="mobileOrderContainer">
+            <button class="mobileOrderButton">
+                <div class="mobileAmount">
+                    <span class="mobileSumAmount" id="mobileTotalAmountID"> 0 </span>
+                    <span class="material-symbols-outlined">shopping_basket</span>
+                    <span id="mobileTotalSumID" class="mobileSumStyle"> Warenkorb </span>
+                </div>
+            </button>
         </div>
     </div>
 
-</body>
+<div class="backToPageContainer" id="backToPageID"> </div>
 
+</body>
 </html>
