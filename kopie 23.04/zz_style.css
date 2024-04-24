@@ -1,0 +1,548 @@
+html {
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    margin: 0px;
+}
+
+/* <<<<<====== header =======>>>>>>> */
+
+header {
+    z-index: 2;
+    /* Siehe .donutBasketContainer, die größere Zahl überdeckt immer den anderen*/
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    align-items: center;
+    background-color: white;
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.headerLogo {
+    display: flex;
+    align-items: center;
+}
+
+.headerLogo h2 {
+    font-size: 30px;
+}
+
+.headerLogo:hover {
+    cursor: pointer;
+}
+
+.displayNoneSpan:hover {
+    cursor: pointer
+}
+
+.hover {
+    cursor: pointer;
+}
+
+.logoStyle {
+    width: 80px;
+    padding-left: 20px;
+    padding-right: 16px;
+    border-radius: 50%;
+}
+
+header h2 {
+    color: #ef6806;
+}
+
+header span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.headerMenus {
+    display: flex;
+    align-items: center;
+}
+
+.headerMenus img {
+    width: 48px;
+    height: 48px;
+    padding: 8px;
+    margin-right: 16px;
+}
+
+/* <<<<<====== Container (Main) =======>>>>>>> */
+
+.mainContainer {
+    margin-top: 90px;
+    width: 100%;
+}
+
+.backgroundStyle {
+    width: 100%;
+    max-height: 25vw;
+    object-position: center;
+    object-fit: cover;
+}
+
+/* <<<<<====== donutDescription =======>>>>>>> */
+
+.descriptionAndMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 350px;
+    margin-top: -50px;
+}
+
+.donutDescriptionContainer {
+    font-weight: 300;
+    width: 65vw;
+
+}
+
+.donutDescriptionContainer h1 {
+    margin-top: 8px;
+}
+
+.logoDescriptionStyle {
+    width: 100px;
+    border-radius: 16%;
+}
+
+.donutDescription p {
+    color: #0616ef;
+}
+
+.starRating {
+    color: #ef6806;
+    font-size: 20px !important;
+    font-variation-settings: "FILL"1, "wght"300;
+    margin: -3px;
+}
+
+.rating {
+    display: flex;
+}
+
+.ratingText {
+    margin-left: 8px;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.barInfo {
+    margin-top: 8px;
+    margin-bottom: 16px;
+    margin-left: -4px;
+    display: flex;
+    align-items: center;
+}
+
+.barInfo span {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.storePromo {
+    font-size: 16px;
+}
+
+/* <<<<<====== donutMenu =======>>>>>>> */
+
+.donutMenuContainer {
+    display: flex;
+    flex-direction: column;
+    width: 65vw;
+}
+
+.menuStyle {
+    margin-bottom: 16px;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 7px 20px 7px 20px;
+}
+
+.menuStyleSub p {
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+
+.menuStyle h3 {
+    margin-bottom: 8px;
+    margin-top: 0px;
+}
+
+.dishInteract {
+    display: flex;
+}
+
+.dishInteractButtonFromMenu {
+    display: flex;
+    height: 40px;
+}
+
+.dishInteractButtonFromMenu:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 100%;
+}
+
+.productImgStyle {
+    width: 110px;
+    border-radius: 16%;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.closeImg {
+    width: 32px;
+    display: flex;
+    align-items: center;
+}
+
+/* <<<<<====== DonutBasket =======>>>>>>> */
+
+.donutBasketContainer {
+    display: flex;
+    overflow: auto;
+    z-index: 1;
+    /* Siehe header Class wegen z-index*/
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 350px;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: -5px 0 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 65px;
+}
+
+.firstBasket {
+    margin-top: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.firstBasket p {
+    margin: 0px;
+}
+
+.firstBasket span {
+    text-align: center;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.secondBasket {
+    padding-bottom: 30px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.basketBigStyleImg {
+    width: 95px;
+}
+
+.dishInBasketContainer {
+    margin-top: 10px;
+    width: 300px;
+    box-shadow: 1px 1px 2px 2px rgba(53, 53, 53, 0.2);
+    font-size: 18px;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.disnInBasketContainer_2 {
+    padding: 4px 15px 4px 15px;
+}
+
+.dishInBasketHead {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inputStyle {
+    width: 35px;
+    margin-left: 15px;
+}
+
+.inputStyle::-webkit-inner-spin-button {
+    /* einfacherer Weg????*/
+    opacity: 1;
+}
+
+.dishName {
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.dishInBasketAmount {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+.dishInBasketAmountValue {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.dishInBasketAmountValue span {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.dishInteractButtonFromBasket {
+    height: 45px;
+}
+
+.basketBillContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: rgb(244, 244, 244);
+    border-radius: 10px;
+    padding: 10px;
+    width: 300px;
+}
+
+.basketBillContainer span {
+    padding-bottom: 40px;
+}
+
+.basketBillContainerSubtotal span {
+    font-size: 14px;
+}
+
+.basketBillContainerDeliver span {
+    font-size: 14px;
+}
+
+.basketBillContainerTotal span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.basketBillContainerTotal {
+    padding-top: 5px;
+}
+
+.payOrderStyle_1 {
+    display: flex;
+    text-align: center;
+    column-gap: 30px;
+    border-radius: 10px;
+    background-color: rgb(244, 244, 244);
+    font-size: 13px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 300px;
+    padding: 10px;
+}
+
+.payOrderStyle_2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border: unset;
+    border-radius: 24px;
+    color: white;
+    font-size: 20px;
+    width: 300px;
+    height: 48px;
+    background-color: #ef6806;
+}
+
+.payOrderStyle_2:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.payOrderStillToPay {
+    color: red;
+    display: flex;
+    padding-top: 5px
+}
+
+.payOrderStyleNotice {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+    font-size: 14px;
+    padding: 10px;
+    background-color: rgb(244 244 244);
+    border-radius: 10px;
+    width: 300px;
+}
+
+.payOrderSpan {
+    padding-bottom: 10px;
+}
+
+.correctImg {
+    width: 15px;
+}
+
+/* <<<<<====== Sonstige =======>>>>>>> */
+
+.button {
+    display: flex;
+    width: 35px;
+    column-gap: 20px;
+}
+
+.mobileBasketContainer {
+    background-color: green;
+    height: 80vh;
+}
+
+.d-block {
+    display: block;
+}
+
+.backToPageContainer {
+    display: flex;
+    justify-content: center;
+}
+
+
+.backToPageStyle {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.backToPageStyle:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.mobileOrderContainer {
+    display: none;
+}
+
+
+@media (max-width: 1150px) {
+
+    .backToPageContainer {
+        padding-bottom: 80px;
+    }
+
+    .visible {
+        visibility: visible !important;
+    }
+
+    .hidden {
+        visibility: hidden !important;
+    }
+
+    .d-none {
+        display: none;
+    }
+
+    .donutBasketContainer {
+        display: none;
+    }
+
+    .donutDescriptionContainer {
+        width: 90vw;
+    }
+
+    .donutMenuContainer {
+        width: 90vw
+    }
+
+    .descriptionAndMenu {
+        margin-right: 0px;
+    }
+
+    .backgroundStyle {
+        max-height: 20vw;
+    }
+
+    /*  <=== MobileContainer ===> */
+
+    .mobileOrderContainer {
+        display: flex;
+        justify-content: center;
+        background-color: #ef6806;
+        border-radius: 24px;
+        height: 48px;
+        box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2);
+        margin-bottom: 10px;
+        margin-left: 50px;
+        margin-right: 50px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .mobileOrderButton {
+        border: unset;
+        background-color: #ef6806;
+        color: white;
+        font-size: 24px;
+    }
+
+    .mobileOrderContainer:hover {
+        /* warum brauche ich zwei Hover? */
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .mobileOrderButton:hover {
+        /* warum brauche ich zwei Hover? */
+        cursor: pointer;
+    }
+
+    .mobileAmount {
+        display: flex;
+        margin-right: 4px;
+    }
+
+    .mobileSumAmount {
+        background-color: #262626;
+        border-radius: 50%;
+        width: 30px;
+        height: 21px;
+        font-size: 18px;
+        margin-right: 5pxpx;
+        margin-top: -8px;
+        z-index: 2;
+    }
+}
+
+.mobileSumStyle {
+    padding-left: 15px;
+}
+
+@media (max-width: 750px) {
+    .backgroundStyle {
+        max-height: 20vh;
+    }
+}
+
+@media (max-width: 700px) {
+    .displayNoneSpan {
+        display: none;
+    }
+}
